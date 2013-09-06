@@ -1,0 +1,28 @@
+<%= form_for @slog, :html => { :multipart => true } do |f| %>
+  <div class="form_image">
+    <h3>Featured Image</h3>
+    <% if @slog.image_url %>
+      <%= image_tag @slog.image_url.to_s %>
+    <% else %>
+      <%= holder_tag "260x260", "No Featured Image" %>
+    <% end %>
+    <div><%= f.file_field :image %></div>
+    <div>OR</div>
+    <div>Enter <%= f.text_field :remote_image_url, :placeholder => "Image URL" %></div>
+  </div>
+  <div class="form_attr">
+    <div class="form_text">
+      <%= f.label :title %><%= f.text_field :title, :placeholder => "Title", :required => true %>
+      <%= f.label :tags %> (separated by commas)<%= f.text_field :tag_list, :placeholder => "Tags (separated by commas)" %>
+    </div>
+    <div class="form_select">
+      <%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %>
+      <%= f.label :mission %><%= f.collection_select :mission_id, current_user.missions, :id, :name %>
+    </div>
+  </div>
+  <div class="form_content">
+    <div class="form_body_header">Slog Body</div>
+    <%= f.cktext_area :body, :ckeditor => { :toolbarCanCollapse => 1, :toolbar => "Slog" } %>
+  </div>
+  <div class="form_actions"><%= f.submit nil, :class => 'btn btn-primary' %></div>
+<% end %>

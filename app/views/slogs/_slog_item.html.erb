@@ -1,0 +1,44 @@
+<div class="slog_item" id="slog_item_<%= slog.id %>">
+  <div class="slog_item_side">
+    <div class="slog_item_image">
+      <% if slog.image_url %>
+        <%= image_tag slog.image_url(:thumb).to_s %>
+      <% else %>
+        <%= holder_tag "100x100" %>
+      <% end %>
+    </div>
+    <div class="slog_item_vote">
+      <div class="slog_item_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></div>
+      <div class="slog_item_score rounded">2156</div>
+    </div>
+  </div>
+  <div class="slog_item_content">
+    <div class="slog_item_header">
+      <div class="slog_item_type rounded"><%= slog.slog_type.name %></div>
+      <h4><%= link_to slog.title, slog_path(slog) %></h4>
+    </div>
+    <div class="slog_item_excerpt">
+      <%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ') %>
+    </div>
+    <div class="slog_item_tags">
+      <span>tags: </span>
+      <!-- TODO: move line below to helper method. Probably shouldnt be calling raw in view -->
+      <%= raw slog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </div>
+    <div class="slog_item_footer">
+      <div class="slog_item_user">
+        Submitted by <%= link_to slog.user.username, user_show_path(slog.user) %> about  
+        <%= time_ago_in_words(slog.created_at) %> ago - 
+      </div>
+      <div class="slog_item_comments">
+        <%= link_to "139 Comments", "#" %>
+      </div>
+      <div class="slog_item_mission">
+        <% if slog.mission %>
+          <%= slog.mission.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

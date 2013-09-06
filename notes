@@ -1,0 +1,1 @@
+Missionship.create(:mission => m, :user => u, :start_date => "2008-06-01 00:00:00", :end_date => "2010-05-17 00:00:00")

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>S</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-targer=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav">
+            <li><%= link_to "Home", slogs_path %></li>
+            <li><%= link_to "Blog" %></li>
+            <li><%= link_to "Slog" %></li>
+            <li><%= link_to "Shop" %></li>
+          </ul>
+          <div class="pull-right user_nav">
+            <% if user_signed_in? %>
+              Signed in as <%= link_to current_user.username, user_show_path(current_user) %>. Not you?
+              <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+            <% else %>
+              <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbar">
+    <div class="container">
+      <div class="brand">Missionary Slog Book</div>
+      <div class="search">
+        <span><input type="text" class="search_input" placeholder="Search..."></span>
+      </div>
+    </div>
+  </div>
+
+  <% if params[:controller] == "slogs" && params[:action] == "index" %>
+    <div class="fbar">
+      <div class="container">
+        <div class="slog_filters">
+          <%= form_tag :method => 'get' do %>
+            <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
+            <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
+            <%= text_field_tag "tag_filter", nil, :placeholder => "Tags..." %>
+            <%= select_tag "slog_type_filter", options_from_collection_for_select(@slog_types, "id", "name") %>
+            <%= select_tag "time_filter", options_for_select(@times) %>
+          <% end %>
+        </div>
+        <div class="new_slog">
+          <% if user_signed_in? %>
+            <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <a class="close" data-dismiss="alert">x</a>
+        <%= msg %>
+      </div>
+    <% end %>
+        <%= yield %>
+  </div>
+
+</body>
+</html>

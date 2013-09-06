@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="span9">
+    <%- model_class = Slog -%>
+    <div class="page-header">
+      <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %> Slog</h1>
+    </div>
+    <%= render :partial => 'form' %>
+  </div>
+  <div class="span3">
+    <%= render "shared/sidebar" %>
+  </div>
+</div>
