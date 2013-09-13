@@ -1,11 +1,7 @@
 <div class="slog_item" id="slog_item_<%= slog.id %>">
   <div class="slog_item_side">
     <div class="slog_item_image">
-      <% if slog.image_url %>
-        <%= image_tag slog.image_url(:thumb).to_s %>
-      <% else %>
-        <%= holder_tag "100x100" %>
-      <% end %>
+      <%= slog_thumb(slog) %>
     </div>
     <div class="slog_item_vote">
       <div class="slog_item_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></div>
@@ -18,12 +14,12 @@
       <h4><%= link_to slog.title, slog_path(slog) %></h4>
     </div>
     <div class="slog_item_excerpt">
-      <%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ') %>
+      <%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %>
     </div>
     <div class="slog_item_tags">
       <span>tags: </span>
       <!-- TODO: move line below to helper method. Probably shouldnt be calling raw in view -->
-      <%= raw slog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <%= raw slog.tag_list.map { |t| link_to t, tag_path(t), :class => "tag" }.join(', ') %>
     </div>
     <div class="slog_item_footer">
       <div class="slog_item_user">

@@ -1,4 +1,6 @@
 class MissionsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /missions
   # GET /missions.json
   def index
@@ -80,4 +82,10 @@ class MissionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def autocomplete
+    @missions = Mission.order(:name).where("name like ?", "%#{params[:term]}%")
+    render json: @missions.map(&:name)
+  end
+
 end

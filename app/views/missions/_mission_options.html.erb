@@ -1,0 +1,8 @@
+<% if current_user.missionships.empty? && ! current_user.call %>
+  <div>If you are a returned missionary <%= link_to "Add a Mission", new_missionship_path, id: "new_mission", remote: true %></div>
+  <div>If you have a mission call, <%= link_to "Add Mission Call", new_call_path, id: "new_call", remote: true %></div>
+  <div>Everyone else, <%= link_to "Check out the top slogs", root_path %></div>
+<% elsif ! current_user.missionships.empty? %>
+  <div><%= link_to "Add another Mission", new_missionship_path, id: "new_mission", remote: true %></div>
+<% end %>
+

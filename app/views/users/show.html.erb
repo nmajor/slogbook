@@ -6,7 +6,7 @@
 <h2>Missions</h2>
 <% for missionship in @user.missionships %>
   <div class="user_mission">
-    <div class="user_mission_name"><h3><%= missionship.mission.name %></h3></div>
+    <div class="user_mission_name"><h3><%= missionship.mission_name %></h3></div>
     <div class="user_mission_start">From: <%= missionship.start_date %></div>
     <div class="user_mission_end">To: <%= missionship.end_date %></div>
   </div>

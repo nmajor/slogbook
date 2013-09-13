@@ -1,16 +1,28 @@
 S::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  get "styles", :as => :styles_show, to: "styles#index"
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   root :to => "slogs#index"
-  resources :slogs
+  resources :slogs do
+    collection { get :autocomplete_tag_name }
+  end
   get 'tags/:tag', to: 'slogs#index', as: :tag
   resources :missions
 
   mount Ckeditor::Engine => "/ckeditor"
 
   get "users/:id", :as => :user_show, to: "users#show"
+
+  resources :missionships do
+    collection { get :autocomplete_mission_name }
+  end
+
+  resources :calls do
+    collection { get :autocomplete_mission_name }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

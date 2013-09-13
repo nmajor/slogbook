@@ -1,5 +1,7 @@
 class SlogsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
+  load_and_authorize_resource
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag', :full => true
 
   # GET /slogs
   # GET /slogs.json
@@ -26,7 +28,6 @@ class SlogsController < ApplicationController
   # GET /slogs/1
   # GET /slogs/1.json
   def show
-    @slog = Slog.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

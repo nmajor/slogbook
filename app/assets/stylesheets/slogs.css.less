@@ -1,13 +1,14 @@
+
 @import "_variables.css.less";
 @mid_dark: #535353;
 .slog_item{ 
   background: @slog_item_bg; 
-  width: 100%;
   padding: 10px;
   margin: 10px 0;
   height: 120px;
   &:hover{
   }
+  .shaddow_border;
 }
 .slog_item h4{ margin: 0; }
 .slog_item_side{ 
@@ -40,7 +41,7 @@
 }
 .slog_item_content{ 
   display: inline-block; 
-  width: (765px - 10px); 
+  width: 643px;
   position: relative;
   float: left;
 }
@@ -75,6 +76,10 @@ h1, h3{
   border-right: 1px solid #eeeeee;
   margin-bottom: 25px;
 }
+.form_image p{
+  text-align: center;
+  font-weight: bold;
+}
 .form_attr{
   display: inline-block;
 }
@@ -85,6 +90,7 @@ h1, h3{
 .form_actions{
   float: right;
   margin-top: 15px;
+  margin-bottom: 30px;
 }
 .form_body_header{
   text-align: center;
@@ -97,10 +103,37 @@ h1, h3{
   text-align: left;
   font-size: 16px;
   font-weight: bold;
+  padding-left: 4px;
+  margin-top: 18px;
 }
 .form_attr input[type="text"]{
   width: 550px;
 }
 .form_image img{
   margin-bottom: 20px;
+}
+.back_to_slogs{
+  margin-top: 5px;
+}
+#slog_content{
+  .shaddow_border;
+  margin: 10px 0;
+}
+#slog_header{ border-bottom: 1px solid #EEEEEE; }
+#slog_header_side{ display: inline-block; }
+#slog_header_body{ display: inline-block; }
+#slog_auth_time{ display: inline-block; }
+#slog_mission{ display: inline-block; float: right; }
+#slog_header_image{ margin: 10px; }
+#slog_body{ padding: 10px; }
+#slog_vote{ display: inline-block; float: right; }
+#slog_type{ display: inline-block; }
+#slog_upvote{ display: inline-block; }
+#slog_score{ display: inline-block; }
+.edit_slog{ margin: 10px; }
+.destroy_slog{ margin: 10px 0; }
+#slog_actions {
+  width: 100%;
+  background: #E6E6E6;
+  border-top: 1px solid #DFDFDF;
 }

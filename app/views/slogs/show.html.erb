@@ -1,33 +1,55 @@
-<%- model_class = Slog -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
-
-<dl class="dl-horizontal">
-  <% if @slog.mission %>
-    <dt><strong><%= model_class.human_attribute_name(:mission) %>:</strong></dt>
-    <dd><%= @slog.mission.name %></dd>
-  <% end %>
-  <dt><strong><%= model_class.human_attribute_name(:slog_type) %>:</strong></dt>
-  <dd><%= @slog.slog_type.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @slog.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
-  <dd><%= raw @slog.body %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @slog.user.username %></dd>
-</dl>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              slogs_path, :class => 'btn'  %>
-  <% if user_signed_in? && current_user == @slog.user %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_slog_path(@slog), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              slog_path(@slog),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-  <% end %>
+<div class="row">
+  <div class="span8">
+    <div id="slog_content">
+      <div id="slog_header">
+        <div id="slog_header_side">
+          <% if @slog.image_url %>
+            <div id="slog_header_image">
+              <%= slog_image(@slog) %>
+            </div>
+          <% end %>
+        </div>
+        <div id="slog_header_body">
+          <div id="slog_header_head">
+            <div id="slog_type"><%= @slog.slog_type.name %></div>
+            <div id="slog_vote">
+              <div id="slog_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></div>
+              <div id="slog_score">48375</div>
+            </div>
+          </div>
+          <div id="slog_title"><%= @slog.title %></div>
+          <div id="slog_tags">tags: <%= raw @slog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div>
+          <div id="slog_header_foot">
+            <div id="slog_auth_time">
+              <span id="slog_author">by <%= @slog.user.username %></span>
+              <span id="slog_time"><%= time_ago_in_words(@slog.created_at) %> ago</span>
+            </div>
+            <div id="slog_mission"><%= @slog.mission.name %></div>
+          </div>
+        </div>
+      </div>
+      <div id="slog_body"><%= raw @slog.body %></div>
+      <div id="slog_actions">
+        <% if can? :update, @slog %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_slog_path(@slog), :class => 'btn edit_slog' %>
+        <% end %>
+        <% if can? :destroy, @slog %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      slog_path(@slog),
+                      :method => 'delete',
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger destroy_slog' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="slog_comments">
+    </div>
+    <div class="back_to_slogs">
+      <%= link_to "<-- Back to Slogs", slogs_path %>
+    </div>
+  </div>
+  <div class="span4">
+    <%= render "shared/sidebar" %>
+  </div>
 </div>

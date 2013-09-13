@@ -1,0 +1,6 @@
+<% if @success == 1 %>
+  $('#call_new').remove();
+  $('#call_list').append('<%= j render "calls/call_item", :call => @call %>');
+<% end %>
+$('#mission_options').html('<%= j render "missions/mission_options" %>')
+$('#mission_notify').html('<%= j render "calls/notice", :success => @success, :notification => @notification %>')

@@ -1,0 +1,5 @@
+<% if @success == 1 %>
+  $("#call_<%= @call.id %>").remove();
+<% end %>
+$('#mission_options').html('<%= j render "missions/mission_options" %>');
+$('#mission_notify').html('<%= j render "calls/notice", :success => @success, :notification => @notification %>');

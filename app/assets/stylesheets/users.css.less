@@ -17,7 +17,7 @@
   margin: 20px 0;
   text-align: center;
 }
-#register > form > #error_explanation{
+form > #error_explanation{
   background: @error_bg_color;
   color: #8C0000;
   padding: 0 10px 10px 10px;
@@ -30,15 +30,20 @@
   height: @form_height;
   font-size: 16px;
 }
+.edit_attr input[type="text"],input[type="email"],input[type="password"]{
+  height: @form_height;
+  font-size: 16px;
+}
 #register select{ height: (@form_height + 10px); font-size: 19px; }
 #register input[type="radio"]{ margin: -7px 0 0; }
 #user_username{ width: @form_width; }
 #user_email{ width: @form_width; }
 #user_password{ width: @form_width; }
+#user_current_password{ width: @form_width; }
 #user_password_confirmation{ width: @form_width; }
 #user_login{ width: @form_width; }
 #user_dob_2i{ width: 140px;}
-#user_dob_3i{ width: 69px;}
+#user_dob_3i{ width: 60px;}
 #user_dob_1i{ width: 90px;}
 .user_label{
   display: inline-block;
@@ -98,3 +103,107 @@
 #sign_in input[type="checkbox"]{
   margin-bottom: 14px;
 }
+.edit_image{
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid #eeeeee;
+}
+.edit_image label{
+  text-align: center;
+  font-weight: bold;
+  font-size: 24.5px;
+}
+.edit_image p{
+  text-align: center;
+  font-weight: bold;
+}
+.edit_image img{
+  margin-bottom: 20px;
+}
+label{
+  font-weight: bold;
+  font-size: 16px;
+}
+.edit_attr{
+  display: inline-block;
+  width: 450px;
+}
+.edit_actions{
+  display: inline-block;
+  clear: both;
+  float: right;
+}
+.edit_header{
+  text-align: center;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+}
+.edit_wrapper{
+  margin-top: 10px; 
+  width:755px;
+}
+.edit_back{
+  float: left;
+  display: inline-block;
+}
+.firstname{
+  display: inline-block;
+}
+.lastname{
+  display: inline-block;
+}
+.missions{
+  margin-top: 0px;
+}
+.missions form{ margin-bottom: 0; }
+#mission_options{
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  margin-top: 30px;
+  padding-right: 15px;
+}
+.missionship_form{
+  display: inline-block;
+}
+.call_form{
+  display: inline-block;
+}
+#missionship_end_date_2i{ width: 120px;}
+#missionship_end_date_3i{ width: 60px;}
+#missionship_end_date_1i{ width: 80px;}
+#missionship_start_date_2i{ width: 120px;}
+#missionship_start_date_3i{ width: 60px;}
+#missionship_start_date_1i{ width: 80px;}
+.missionship_form label{ margin-left: 5px; font-size: 14px; }
+.submit_missionship{ margin-bottom: 10px; }
+#call_start_date_2i{ width: 120px;}
+#call_start_date_3i{ width: 60px;}
+#call_start_date_1i{ width: 80px;}
+.call_form label{ margin-left: 5px; font-size: 14px; }
+.submit_call{ margin-bottom: 10px; }
+.missionship_item > div{ 
+  display: inline-block; 
+}
+.missionship_item{
+  a{
+    font-size: 10px;
+  }
+}
+.call_item > div{ 
+  display: inline-block; 
+}
+.call_item{
+  a{
+    font-size: 10px;
+  }
+}
+.missionship_name{ width: 280px; }
+.missionship_length{ width: 280px; }
+.missionship_mission_name{ width: 220px; display: inline-block; }
+.edit_form_footer{ height: 30px; }
+#mission_notify{ margin: 15px 0; }
+#edit_user{ margin: 0; }

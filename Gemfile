@@ -7,12 +7,15 @@ gem 'rails', '3.2.13'
 
 gem 'mysql2'
 gem 'devise'
+gem 'cancan'
 gem 'holder_rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'acts-as-taggable-on'
 gem 'ckeditor'
 gem 'mini_magick'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 
 # Gems used only for assets and not required
 # in production environments by default.

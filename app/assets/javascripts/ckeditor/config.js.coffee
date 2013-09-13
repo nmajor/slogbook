@@ -1,8 +1,8 @@
 # http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html#.toolbar_Full
 CKEDITOR.editorConfig = (config) ->
   config.language = 'en'
-  # config.width = '725'
-  config.height = '600'
+  config.width = '860'
+  config.height = '400'
   config.toolbar_Slog = [
     { name: 'basicstyles', items: [ 'Bold','Italic','Underline','-','RemoveFormat' ] },
     { name: 'insert',      items: [ 'Image','HorizontalRule','SpecialChar' ] },

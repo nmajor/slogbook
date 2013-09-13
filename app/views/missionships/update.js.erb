@@ -1,0 +1,6 @@
+<% if @success == 1 %>
+  $("#missionship_edit_<%= @missionship.id %>").remove();
+  $('#missionship_<%= @missionship.id %>').html('<%= j render "missionships/missionship_item", :missionship => @missionship %>');
+<% end %>
+$('#mission_options').html('<%= j render "missions/mission_options" %>');
+$('#mission_notify').html('<%= j render "missionships/notice", :success => @success, :notification => @notification %>');

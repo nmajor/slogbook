@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905051031) do
+ActiveRecord::Schema.define(:version => 20130909015053) do
+
+  create_table "callings", :force => true do |t|
+    t.integer  "mission_id"
+    t.integer  "user_id"
+    t.date     "start_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "callings", ["mission_id"], :name => "index_callings_on_mission_id"
+  add_index "callings", ["user_id"], :name => "index_callings_on_user_id"
+
+  create_table "calls", :force => true do |t|
+    t.integer  "mission_id"
+    t.integer  "user_id"
+    t.date     "start_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "calls", ["mission_id"], :name => "index_calls_on_mission_id"
+  add_index "calls", ["user_id"], :name => "index_calls_on_user_id"
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -88,8 +110,8 @@ ActiveRecord::Schema.define(:version => 20130905051031) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",                  :default => "", :null => false
+    t.string   "email",                               :default => "",       :null => false
+    t.string   "encrypted_password",                  :default => "",       :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -101,14 +123,15 @@ ActiveRecord::Schema.define(:version => 20130905051031) do
     t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                          :null => false
-    t.datetime "updated_at",                                          :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
     t.string   "username"
     t.string   "avatar"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "gender",                 :limit => 1
     t.date     "dob"
+    t.string   "role",                                :default => "author"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

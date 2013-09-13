@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :slogs
   has_many :missionships
   has_many :missions, :through => :missionships
+  has_one :call
+  has_one :mission, :through => :call
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -9,8 +11,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
     :lockable 
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :login, :image,
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :login, :image, :role,
                   :dob, :firstname, :lastname, :gender, :avatar, :avatar_cache, :remove_avatar, :remote_avatar_url
+  attr_readonly :username
   validates_uniqueness_of :username
   attr_accessor :login
   mount_uploader :avatar, AvatarUploader
@@ -22,6 +25,12 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  ROLES = %[admin moderator]
+
+  def role?(role)
+    self.role == role.to_s
   end
 
 end

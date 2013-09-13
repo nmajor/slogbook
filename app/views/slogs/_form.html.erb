@@ -1,19 +1,15 @@
 <%= form_for @slog, :html => { :multipart => true } do |f| %>
   <div class="form_image">
     <h3>Featured Image</h3>
-    <% if @slog.image_url %>
-      <%= image_tag @slog.image_url.to_s %>
-    <% else %>
-      <%= holder_tag "260x260", "No Featured Image" %>
-    <% end %>
+    <%= slog_image(@slog) %>
     <div><%= f.file_field :image %></div>
-    <div>OR</div>
+    <p>- OR -</p>
     <div>Enter <%= f.text_field :remote_image_url, :placeholder => "Image URL" %></div>
   </div>
   <div class="form_attr">
     <div class="form_text">
       <%= f.label :title %><%= f.text_field :title, :placeholder => "Title", :required => true %>
-      <%= f.label :tags %> (separated by commas)<%= f.text_field :tag_list, :placeholder => "Tags (separated by commas)" %>
+      <%= f.label :tag_list, "Tags"%><%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>
     </div>
     <div class="form_select">
       <%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %>

@@ -1,35 +1,71 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <p><%= f.label :username %><br />
-  <%= f.text_field :username, :autofocus => true %></p>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :avatar %><br />
-  <%= f.file_field :avatar %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="row">
+  <div class="span8">
+    <div class="edit_header">
+      <h2>Edit <%= resource.username %></h2>
+    </div>
+    <div class="edit_user_wrapper">  
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+        <%= devise_error_messages! %>
+    
+        <div class="edit_wrapper">
+          <div class="edit_image">
+            <%= f.label :avatar %>
+            <%= big_user_avatar(resource) %>
+            <div><%= f.file_field :avatar %></div>
+            <p>- OR -</p>
+            <div>Enter <%= f.text_field :remote_avatar_url, :placeholder => "Image URL" %></div>
+          </div>
+      
+      
+          <div class="edit_attr">
+            <div>
+              <div class="firstname"><%= f.label :firstname %><%= f.text_field :firstname, :placeholder => "First Name", :required => true %></div>
+              <div class="lastname"><%= f.label :lastname %><%= f.text_field :lastname, :placeholder => "Lirst Name", :required => true %></div>
+            </div>
+            <div><%= f.label :email %><%= f.email_field :email %></div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <div><%= f.label :password, "Password (leave blank if you don't want to change it)" %>
+            <%= f.password_field :password, :autocomplete => "off" %></div>
+            <div><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></div>
+            <div><%= f.label :current_password, "Current Password (required to change email or password)" %>
+            <%= f.password_field :current_password %></div>
+            <div class="user_label">Date of Birth</div>
+            <%= f.date_select :dob, :order => [:month, :day, :year], :use_short_month => false,
+              :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %>
+            <div class="edit_gender">
+              <%= f.radio_button :gender, "m", :checked => true %><div class="user_label room_right">Male</div>
+              <%= f.radio_button :gender, "f" %><div class="user_label">Female</div>
+            </div>
+          </div>
+          <div class="edit_form_footer">
+            <div class="edit_actions"><%= f.submit "Update", :class => 'btn btn-primary' %></div>
+            <div class="edit_back"><%= link_to "Back", :back %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="missions">
+      <div id="mission_notify"></div>
+      <div id="missionship_list">
+        <% if current_user.missionships %>
+          <% current_user.missionships.each do |missionship| %>
+            <%= render "missionships/missionship_item", :missionship => missionship %>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="call_list">
+        <% if current_user.call %>
+          <%= render "calls/call_item", :call => current_user.call %>
+        <% end %>
+      </div>
+      <div id="mission_options">
+        <%= render "missions/mission_options" %>
+      </div>
+    </div>
+  </div>
+  <div class="span4">
+    <%= render "shared/sidebar" %>
+  </div>
+</div>

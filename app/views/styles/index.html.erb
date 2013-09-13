@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="span8" style="margin-bottom: 300px;">
+    <div>
+      <h3>- Headers -</h3>
+      <div><h1>Header 1</h1></div>
+      <div><h2>Header 2</h2></div>
+      <div><h3>Header 3</h3></div>
+      <div><h4>Header 4</h4></div>
+      <div><h5>Header 5</h5></div>
+      <div><h6>Header 6</h6></div>
+    </div>
+    <div>
+      <h3>- Form Elements -</h3>
+      <%= form_tag do %>
+        <div>
+          <%= label_tag "Text Field" %> 
+          <%= text_field_tag(:q) %>
+          <%= label_tag "Email Field" %> 
+          <%= email_field(:q, :a) %>
+          <%= label_tag "Password Field" %> 
+          <%= password_field_tag(:q) %>
+          <%= label_tag "text_area" %> 
+          <%= text_area_tag(:m) %>
+        </div>
+        <div>
+          <%= label_tag "Select" %> 
+          <%= select_tag( :q, options_for_select([['Lisbon', 1], ['Madrid', 2], ['Salt Lake City', 3], ['Boston', 4]]) ) %>
+        </div>
+        <div>
+          <%= label_tag "Radio Button 1" %>
+          <%= radio_button_tag(:q1, "q1") %>
+          <%= label_tag "Radio Button 2" %>
+          <%= radio_button_tag(:q2, "q2") %>
+          <%= label_tag "Radio Button 3" %>
+          <%= radio_button_tag(:q3, "q3") %>
+          <%= label_tag "Radio Button 4" %>
+          <%= radio_button_tag(:q4, "q4") %>
+        </div>
+        <div>
+          <%= label_tag "Checkbox 1" %>
+          <%= check_box_tag(:c1) %>
+          <%= label_tag "Checkbox 2" %>
+          <%= check_box_tag(:c1) %>
+          <%= label_tag "Checkbox 3" %>
+          <%= check_box_tag(:c1) %>
+        </div>
+        <div>
+          <%= label_tag "Date Select" %>
+          <%= date_select :d, :order => [:month, :day, :year], :use_short_month => false,
+              :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %>
+        </div>
+          <%= submit_tag %>
+      <% end %>
+    </div>
+    <div>
+      <h3>- Paragraph -</h3>
+      <div><p>This is a paragraph. Sed a nunc odio. Nunc egestas tortor quis lacus feugiat mollis. Duis sit amet justo placerat, dictum neque ut, viverra eros. Donec nec turpis pulvinar, malesuada mauris nec, vehicula lorem. Sed ac purus risus. Curabitur dignissim vitae orci eu pellentesque. Nam egestas venenatis sapien vel pharetra. Sed in massa feugiat erat placerat molestie. Proin quam urna, consequat nec dictum nec, porta eget nunc. Donec ultrices sed nisl ut rutrum. Suspendisse sodales metus sed quam iaculis hendrerit. Nam quis justo pharetra, rutrum odio non, fringilla lorem. Nunc facilisis, ante eget viverra volutpat, tortor eros mollis felis, suscipit porttitor odio velit eu dolor. Curabitur volutpat aliquet arcu, sed venenatis dolor.</p></div>
+    </div>
+    <div>
+      <h3>- Lists -</h3>
+      <ol>
+        <li>Ordered List 1</li>
+        <li>Ordered List 2</li>
+        <li>Ordered List 3</li>
+      </ol>
+      <ul>
+        <li>Unordered List 1</li>
+        <li>Unordered List 2</li>
+        <li>Unordered List 3</li>
+      </ul>
+    </div>
+    <div>
+      <h3>- Links -</h3>
+      <div>
+        <div><%= link_to "This is a regular link", "#" %></div>
+        <div><%= link_to "btn Link", "#", :class => "btn" %></div>
+        <div><%= link_to "btn.btn_primary Link", "#", :class => "btn btn_primary" %></div>
+        <div><%= link_to "btn.btn_edit Link", "#", :class => "btn btn_edit" %></div>
+        <div><%= link_to "btn.btn_delete Link", "#", :class => "btn btn_delete" %></div>
+        <div><%= link_to "btn.btn_success Link", "#", :class => "btn btn_success" %></div>
+        <div><%= link_to "btn.btn_action Link", "#", :class => "btn btn_action" %></div>
+      </div>
+      <div>
+        <div>Large Button: <%= link_to "btn.btn_primary.btn_large Link", "#", :class => "btn btn_primary btn_large" %>
+        <%= link_to "btn.btn_large Link", "#", :class => "btn btn_large" %></div>
+        <div>Default Button: <%= link_to "btn.btn_primary Link", "#", :class => "btn btn_primary" %>
+        <%= link_to "btn Link", "#", :class => "btn" %></div>
+        <div>Small Button: <%= link_to "btn.btn_primary.btn_small Link", "#", :class => "btn btn_primary btn_small" %>
+        <%= link_to "btn.btn_small Link", "#", :class => "btn btn_small" %></div>
+        <div>Mini Button: <%= link_to "btn.btn_primary.btn_mini Link", "#", :class => "btn btn_primary btn_mini" %>
+        <%= link_to "btn.btn_mini Link", "#", :class => "btn btn_mini" %></div>
+      </div>
+      <div>
+        <%= link_to "btn.btn_primary.btn_block Link", "#", :class => "btn btn_primary btn_block" %>
+        <%= link_to "btn.btn_block Link", "#", :class => "btn btn_block" %>
+      </div>
+    </div>
+    <div>
+      <h3>- Alerts -</h3>
+      <div class="alert"><a class="close" data-dismiss="alert">x</a> alert Box</div>
+      <div class="alert alert-error"><a class="close" data-dismiss="alert">x</a> alert-error Box</div>
+      <div class="alert alert-success"><a class="close" data-dismiss="alert">x</a> alert-success Box</div>
+    </div>
+    <div>
+      <h3>- Other -</h3>
+      <div><span class="tag_label">tags: </span>
+        <%= link_to "tag1", :class => "tag" %>, 
+        <%= link_to "tag2", :class => "tag" %>, 
+        <%= link_to "tag3", :class => "tag" %>, 
+        <%= link_to "tag4", :class => "tag" %> 
+      </div>
+    </div>
+    <div>
+      <div class="slog_type">Slog Type</div>
+    </div>
+    <div class="shaddow_border">
+      This is a div with the class shadow_border
+    </div>
+  </div>
+  <div class="span4">
+    <%= render "shared/sidebar" %>
+  </div>
+</div>

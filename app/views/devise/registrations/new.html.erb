@@ -17,8 +17,8 @@
       <%= f.date_select :dob, :order => [:month, :day, :year], :use_short_month => false, 
         :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %>
       <div>
-      <%= f.radio_button :gender, "m", :checked => true %><div class="user_label room_right">Male</div>
-      <%= f.radio_button :gender, "f" %><div class="user_label">Female</div>
+        <%= f.radio_button :gender, "m", :checked => true %><div class="user_label room_right">Male</div>
+        <%= f.radio_button :gender, "f" %><div class="user_label">Female</div>
       </div>
       <div class="register_terms">
         By clicking the Sign Up button below, you are stating that you have read and agree to our <%= link_to "Terms of Use", "#" %>

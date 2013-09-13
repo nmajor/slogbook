@@ -1,0 +1,6 @@
+<div class="call_item" id="call_<%= call.id %>">
+  <div class="call_name"><%= call.mission_name %></div>
+  <div class="call_start">Leaving <%= call.start_date.to_formatted_s(:long) %></div>
+  <div class="call_actions">
+    <%= link_to "Delete", call_path(call), :method => "delete", :confirm => "Are you sure you want to delete this mission call from your profile?", :remote => true %></div>
+</div>
