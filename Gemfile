@@ -12,6 +12,7 @@ gem 'holder_rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'acts-as-taggable-on'
+gem 'acts_as_commentable_with_threading'
 gem 'ckeditor'
 gem 'mini_magick'
 gem 'jquery-ui-rails'
@@ -28,7 +29,6 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
 end
 
 gem 'therubyracer'

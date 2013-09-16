@@ -27,7 +27,7 @@
         <%= time_ago_in_words(slog.created_at) %> ago - 
       </div>
       <div class="slog_item_comments">
-        <%= link_to "139 Comments", "#" %>
+        <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog) %>
       </div>
       <div class="slog_item_mission">
         <% if slog.mission %>

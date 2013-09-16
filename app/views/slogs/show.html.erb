@@ -44,6 +44,15 @@
       </div>
     </div>
     <div class="slog_comments">
+      <% if user_signed_in? %>
+        <div id="add_new_comment">
+          <h4>Add Comment<h4>
+          <%= render "shared/add_comment", :parent => nil %>
+        </div>
+      <% end %>
+      <% for comment in @slog.root_comments %>
+        <%= render "shared/comment", :comment => comment, :parent => comment.id %>
+      <% end %>
     </div>
     <div class="back_to_slogs">
       <%= link_to "<-- Back to Slogs", slogs_path %>
