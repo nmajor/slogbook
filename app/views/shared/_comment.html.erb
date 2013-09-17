@@ -1,0 +1,23 @@
+<div class="comment" id="comment_<%= comment.id %>">
+  <div class="comment_sidebar">
+    <div class="comment_user_image">
+      <%= holder_tag '64x64' %>
+    </div>
+  </div>
+  <div class="comment_content">
+    <div class="headline">
+      <div class="comment_name"><%= link_to comment.user.username, user_show_path(comment.user) %></div>
+      <div class="comment_age"><%= time_ago_in_words(comment.created_at) %> ago</div>
+      <div class="comment_replies"><%= comment.children.size %> replies</div>
+    </div>
+    <div class="comment_body"><%= comment.body %></div>
+    <%= render "shared/add_comment", :parent => comment.id %>
+  </div>
+  <div class="nested_comments">
+    <% if( comment.has_children?) %>
+      <% for child_comment in comment.children %>
+        <%= render "shared/comment", :comment => child_comment, :parent => comment.id %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

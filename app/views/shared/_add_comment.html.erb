@@ -1,0 +1,6 @@
+<div id="add_comment_<%= parent %>" class="add_comment">
+  <%= form_tag({controller: "slogs", action: "comment", parent: parent }, method: "post") do %>
+    <%= text_area_tag(:comment_text) %><br />
+    <%= submit_tag("Save") %>
+  <% end %>
+</div>
