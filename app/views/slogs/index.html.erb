@@ -1,11 +1,10 @@
-<div class="row">
-  <div class="span8">
-    <% @slogs.each do |slog| %>
-      <%= render "slog_item", :slog => slog %>
-    <% end %>
-  </div>
-  <div class="span4">
-    <%= render "shared/sidebar" %>
-  </div>
-</div>
-
+<section class="row">
+    <section class="span8">
+        <% @slogs.each do |slog| %>
+            <%= render "slog_item", :slog => slog %>
+        <% end %>
+    </section>
+    <section class="span4">
+        <%= render "shared/sidebar" %>
+    </section>
+</section>

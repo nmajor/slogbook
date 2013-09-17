@@ -1,70 +1,102 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>S</title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="nav_bar">
-    <div class="container">
-      <ul class="nav">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Blog" %></li>
-        <li><%= link_to "Slog" %></li>
-        <li><%= link_to "Shop" %></li>
-      </ul>
-      <div class="user_nav">
-        <% if user_signed_in? %>
-          Signed in as <%= link_to current_user.username, user_show_path(current_user) %>. Not you?
-          <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-        <% else %>
-          <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="brand_bar">
-    <div class="container">
-      <div class="brand">Missionary Slog Book</div>
-      <div class="search">
-        <span><input type="text" class="search_input" placeholder="Search..."></span>
-      </div>
-    </div>
-  </div>
-
-  <% if params[:controller] == "slogs" && params[:action] == "index" %>
-    <div class="filter_bar">
-      <div class="container">
-        <div class="slog_filters">
-          <%= form_tag :method => 'get' do %>
-            <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
-            <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
-            <%= text_field_tag "tag_filter", nil, :placeholder => "Tags..." %>
-            <%= select_tag "slog_type_filter", options_from_collection_for_select(@slog_types, "id", "name") %>
-            <%= select_tag "time_filter", options_for_select(@times) %>
-          <% end %>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+    </head>
+    <body>
+<!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<section class="page">
+    <section class="nav_bar">
+        <section class="container">
+        <ul class="nav">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Blog" %></li>
+            <li><%= link_to "Slog" %></li>
+            <li><%= link_to "Shop" %></li>
+        </ul>
+        <div class="user_nav">
+            <% if user_signed_in? %>
+                Signed in as <%= link_to current_user.username, user_show_path(current_user) %>. Not you?
+                <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+            <% else %>
+                <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
+            <% end %>
         </div>
-        <div class="new_slog">
-          <% if user_signed_in? %>
-            <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+        </section>
+    </section>
 
-  <div class="container">
-    <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-        <a class="close" data-dismiss="alert">x</a>
-        <%= msg %>
-      </div>
+    <section class="brand_bar">
+        <section class="container">
+            <h1 class="brand">Missionary Slog Book</h1>
+            <div class="search">
+                <span><input type="text" class="search_input" placeholder="Search..."></span>
+            </div>
+        </section>
+    </section>
+
+    <% if params[:controller] == "slogs" && params[:action] == "index" %>
+    <section class="filter_bar">
+        <section class="container">
+            <section class="slog_filters">
+                <%= form_tag :method => 'get' do %>
+                    <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
+                    <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
+                    <%= text_field_tag "tag_filter", nil, :placeholder => "Tags..." %>
+                    <%= select_tag "slog_type_filter", options_from_collection_for_select(@slog_types, "id", "name") %>
+                    <%= select_tag "time_filter", options_for_select(@times) %>
+                <% end %>
+            </section>
+            <div class="new_slog">
+                <% if user_signed_in? %>
+                <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
+                <% end %>
+            </div>
+        </section>
+    </section>
     <% end %>
-        <%= yield %>
-  </div>
 
+    <section class="container">
+        <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+            <a class="close" data-dismiss="alert">x</a>
+            <%= msg %>
+        </div>
+        <% end %>
+        <%= yield %>
+    </section>
+
+</section>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src='//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 </body>
 </html>

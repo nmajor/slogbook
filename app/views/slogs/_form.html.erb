@@ -1,24 +1,23 @@
 <%= form_for @slog, :html => { :multipart => true } do |f| %>
-  <div class="form_image">
-    <h3>Featured Image</h3>
-    <%= slog_image(@slog) %>
-    <div><%= f.file_field :image %></div>
-    <p>- OR -</p>
-    <div>Enter <%= f.text_field :remote_image_url, :placeholder => "Image URL" %></div>
-  </div>
-  <div class="form_attr">
-    <div class="form_text">
-      <%= f.label :title %><%= f.text_field :title, :placeholder => "Title", :required => true %>
-      <%= f.label :tag_list, "Tags"%><%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>
+    <div class="form_image">
+        <h3>Featured Image</h3>
+        <%= slog_image(@slog) %>
+        <div><%= f.file_field :image %></div>
+        <div>Enter <%= f.text_field :remote_image_url, :placeholder => "Image URL" %></div>
     </div>
-    <div class="form_select">
-      <%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %>
-      <%= f.label :mission %><%= f.collection_select :mission_id, current_user.missions, :id, :name %>
+    <div class="form_attr">
+        <div class="form_text">
+            <%= f.label :title %><%= f.text_field :title, :placeholder => "Title", :required => true %>
+            <%= f.label :tag_list, "Tags"%><%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>
+        </div>
+        <div class="form_select">
+            <%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %>
+            <%= f.label :mission %><%= f.collection_select :mission_id, current_user.missions, :id, :name %>
+        </div>
     </div>
-  </div>
-  <div class="form_content">
-    <div class="form_body_header">Slog Body</div>
-    <%= f.cktext_area :body, :ckeditor => { :toolbarCanCollapse => 1, :toolbar => "Slog" } %>
-  </div>
-  <div class="form_actions"><%= f.submit nil, :class => 'btn btn-primary' %></div>
+    <div class="form_content">
+        <legend class="form_body_header">Slog Body</legend>
+        <%= f.cktext_area :body, :ckeditor => { :toolbarCanCollapse => 1, :toolbar => "Slog" } %>
+    </div>
+    <div class="form_actions"><%= f.submit nil, :class => 'btn btn-primary' %></div>
 <% end %>

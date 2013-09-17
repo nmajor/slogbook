@@ -1,31 +1,30 @@
-
 <div class="row">
-  <div id="register">
-    <h1>Register</h1>
-    <p>Missionary Slog Book is free!</p>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-      <div>
-      <%= f.text_field :firstname, :placeholder => "First Name", :required => true %>
-      <%= f.text_field :lastname, :placeholder => "Lirst Name", :required => true %>
-      </div>
-      <div><%= f.text_field :username, :placeholder => "Username", :required => true %></div>
-      <div><%= f.email_field :email, :placeholder => "Email", :required => true %></div>
-      <div><%= f.password_field :password, :placeholder => "New Password", :required => true %></div>
-      <div><%= f.password_field :password_confirmation, :placeholder => "Confirm Password", :required => true %></div>
-      <div class="user_label">Date of Birth</div>
-      <%= f.date_select :dob, :order => [:month, :day, :year], :use_short_month => false, 
-        :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %>
-      <div>
-        <%= f.radio_button :gender, "m", :checked => true %><div class="user_label room_right">Male</div>
-        <%= f.radio_button :gender, "f" %><div class="user_label">Female</div>
-      </div>
-      <div class="register_terms">
-        By clicking the Sign Up button below, you are stating that you have read and agree to our <%= link_to "Terms of Use", "#" %>
-      </div>
-      <%= f.submit "Sign up", :class => "btn btn-success btn-large btn-block" %>
-    <% end %>
-    
-    <%= render "devise/shared/links" %>
-  </div>
+    <div id="register">
+        <h1>Register</h1>
+        <p>Missionary Slog Book is free!</p>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <div>
+            <%= f.text_field :firstname, :placeholder => "First Name", :required => true %>
+            <%= f.text_field :lastname, :placeholder => "Last Name", :required => true %>
+            </div>
+            <div><%= f.text_field :username, :placeholder => "Username", :required => true %></div>
+            <div><%= f.email_field :email, :placeholder => "Email", :required => true %></div>
+            <div><%= f.password_field :password, :placeholder => "New Password", :required => true %></div>
+            <!-- i reccommend making only one password input -->
+            <div><%= f.password_field :password_confirmation, :placeholder => "Confirm Password", :required => true %></div>
+            <div class="user_label">Date of Birth</div>
+            <%= f.date_select :dob, :order => [:month, :day, :year], :use_short_month => false, 
+              :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %>
+            <div>
+              <%= f.radio_button :gender, "m", :checked => true %><div class="user_label room_right">Male</div>
+              <%= f.radio_button :gender, "f" %><div class="user_label">Female</div>
+            </div>
+            <p class="register_terms">
+              By clicking the Sign Up button below, you are stating that you have read and agree to our <%= link_to "Terms of Use", "#" %>
+            </p>
+            <%= f.submit "Sign up", :class => "btn btn-success btn-large btn-block" %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+    </div>
 </div>
