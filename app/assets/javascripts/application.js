@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require autocomplete-rails
+//= require ckeditor/init
 //= require_tree .
 //= require holder
-//= require ckeditor/init

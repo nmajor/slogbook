@@ -63,6 +63,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     hike (1.2.3)
     holder_rails (2.0.0)
       railties (>= 3.1.0)
@@ -152,6 +154,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 3.2.1)
   devise
+  friendly_id
   holder_rails
   jquery-rails
   jquery-ui-rails

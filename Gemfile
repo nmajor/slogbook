@@ -17,6 +17,7 @@ gem 'ckeditor'
 gem 'mini_magick'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.

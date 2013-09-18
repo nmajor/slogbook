@@ -28,10 +28,14 @@ class SlogsController < ApplicationController
   # GET /slogs/1
   # GET /slogs/1.json
   def show
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @slog }
+    @slog = Slog.find(params[:id])
+    if request.path == slog_path(@slog)
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @slog }
+      end
+    else
+      redirect_to @slog, status: :moved_permanently
     end
   end
 
