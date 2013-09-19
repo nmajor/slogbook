@@ -1,39 +1,38 @@
-<section class="slog_item" id="slog_item_<%= slog.id %>">
-    <div class="slog_item_side">
-        <div class="slog_item_image">
-            <%= slog_thumb(slog) %>
-        </div>
-        <div class="slog_item_vote">
-            <span class="slog_item_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></span>
-            <span class="slog_item_score rounded">2156</span>
-        </div>
+<section class="slog_preview" id="slog_item_<%= slog.id %>">
+    <div class="slog_preview_head">
+        <img src="http://placekitten.com/50/50" class="usr_img_small" title="user.username"/>
+        <span class="user"><%= link_to slog.user.username, user_show_path(slog.user) %></span>
+        <span class="created"><%= time_ago_in_words(slog.created_at) %> ago</span> 
     </div>
-    <div class="slog_item_content">
-        <div class="slog_item_header">
-            <span class="slog_item_type rounded"><%= slog.slog_type.name %></span>
-            <h4><%= link_to slog.title, slog_path(slog) %></h4>
+    <div class="slog_preview_content">
+        <h3><%= link_to slog.title, slog_path(slog) %></h3>
+        <% if slog.mission %>
+        <!-- this should link to a page with posts from this mission -->
+        <h5 class="mission"><a href="#mission" title="Read more posts from %mission.name%"><%= slog.mission.name %></a></h5>
+        <% end %>
+        <span class="slog_type"><%= slog.slog_type.name %></span>
+        <p class="excerpt"><%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %></p>
+        <div class="slog_image">
+            <img src="http://placekitten.com/320/200" title="<%# title, tag1, tag2, tag3 %>" width="100%" height="auto" />
+            <%# can you make the thumb this size? %>
+            <%#= slog_thumb(slog) %>
         </div>
-        <p class="slog_item_excerpt">
-            <%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %>
-        </p>
-        <div class="slog_item_tags">
-            <span>tags: </span>
-            <!-- TODO: move line below to helper method. Probably shouldnt be calling raw in view -->
-            <%= raw slog.tag_list.map { |t| link_to t, tag_path(t), :class => "tag" }.join() %>
-        </div>
-        <div class="slog_item_footer">
-            <p class="slog_item_user">
-                <span>Submitted by <%= link_to slog.user.username, user_show_path(slog.user) %></span>
-                 about <span><%= time_ago_in_words(slog.created_at) %> ago -</span> 
-            </p>
-            <span class="slog_item_comments">
+        <div class="slog_preview_footer">
+            <div class="slog_item_vote">
+                <span class="slog_item_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></span>
+                <span class="slog_item_score rounded">2156</span>
+            </div>
+            <ul class="tags">
+                <%#for each tag: %>
+                <li><a href="#link" title="See more about <%# tag %>">tag</a></li>
+                <%# end %>
+                <!-- TODO: make the tags into list items like above -->
+                <!-- TODO: move line below to helper method. Probably shouldnt be calling raw in view -->
+                <%#= raw slog.tag_list.map { |t| link_to t, tag_path(t), :class => "tag" }.join() %>
+            </ul>
+            <span class="comments">
                 <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog) %>
             </span>
-        </div>
-        <div class="slog_item_mission">
-            <% if slog.mission %>
-            <%= slog.mission.name %>
-            <% end %>
         </div>
     </div>
 </section>

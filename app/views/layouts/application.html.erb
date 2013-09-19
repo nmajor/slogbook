@@ -16,11 +16,8 @@
                 padding-bottom: 20px;
             }
         </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 		<%= stylesheet_link_tag "application", :media => "all" %>
-		<%#= javascript_include_tag "application" %>
+		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
     </head>
     <body>
@@ -28,8 +25,7 @@
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 <section class="page">
-    <section class="nav_bar">
-        <section class="container">
+    <section class="nav_bar container">
         <ul class="nav">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Blog" %></li>
@@ -44,36 +40,31 @@
                 <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
             <% end %>
         </div>
-        </section>
     </section>
 
-    <section class="brand_bar">
-        <section class="container">
-            <h1 class="brand">Missionary Slog Book</h1>
-            <div class="search">
-                <span><input type="text" class="search_input" placeholder="Search..."></span>
-            </div>
-        </section>
+    <section class="brand_bar container">
+        <h1 class="brand">Missionary Slog Book</h1>
+        <div class="search">
+            <span><input type="text" class="search_input" placeholder="Search..."></span>
+        </div>
     </section>
 
     <% if params[:controller] == "slogs" && params[:action] == "index" %>
-    <section class="filter_bar">
-        <section class="container">
-            <section class="slog_filters">
-                <%= form_tag :method => 'get' do %>
-                    <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
-                    <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
-                    <%= text_field_tag "tag_filter", nil, :placeholder => "Tags..." %>
-                    <%= select_tag "slog_type_filter", options_from_collection_for_select(@slog_types, "id", "name") %>
-                    <%= select_tag "time_filter", options_for_select(@times) %>
-                <% end %>
-            </section>
-            <div class="new_slog">
-                <% if user_signed_in? %>
-                <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
-                <% end %>
-            </div>
+    <section class="filter_bar container">
+        <section class="slog_filters">
+            <%= form_tag :method => 'get' do %>
+                <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
+                <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
+                <%= text_field_tag "tag_filter", nil, :placeholder => "Tags..." %>
+                <%= select_tag "slog_type_filter", options_from_collection_for_select(@slog_types, "id", "name") %>
+                <%= select_tag "time_filter", options_for_select(@times) %>
+            <% end %>
         </section>
+        <div class="new_slog">
+            <% if user_signed_in? %>
+            <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
+            <% end %>
+        </div>
     </section>
     <% end %>
 

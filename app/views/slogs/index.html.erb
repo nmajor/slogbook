@@ -1,10 +1,10 @@
-<section class="row">
-    <section class="span8">
+<section class="home">
+    <section class="slog_list">
         <% @slogs.each do |slog| %>
             <%= render "slog_item", :slog => slog %>
         <% end %>
     </section>
-    <section class="span4">
+    <section class="means">
         <%= render "shared/sidebar" %>
     </section>
 </section>
