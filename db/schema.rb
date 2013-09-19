@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130915030551) do
+ActiveRecord::Schema.define(:version => 20130918015220) do
 
   create_table "callings", :force => true do |t|
     t.integer  "mission_id"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(:version => 20130915030551) do
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "missions", :force => true do |t|
     t.string   "name"
     t.string   "country"
@@ -103,10 +114,12 @@ ActiveRecord::Schema.define(:version => 20130915030551) do
     t.integer  "slog_type_id"
     t.integer  "mission_id"
     t.string   "image"
+    t.string   "slug"
   end
 
   add_index "slogs", ["mission_id"], :name => "index_slogs_on_mission_id"
   add_index "slogs", ["slog_type_id"], :name => "index_slogs_on_slog_type_id"
+  add_index "slogs", ["slug"], :name => "index_slogs_on_slug", :unique => true
   add_index "slogs", ["user_id"], :name => "index_slogs_on_user_id"
 
   create_table "taggings", :force => true do |t|

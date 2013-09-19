@@ -7,4 +7,6 @@ class Slog < ActiveRecord::Base
   belongs_to :user  
   belongs_to :slog_type
   belongs_to :mission
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
 end

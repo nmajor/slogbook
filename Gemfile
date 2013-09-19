@@ -14,9 +14,9 @@ gem 'rmagick'
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable_with_threading'
 gem 'ckeditor'
-gem 'mini_magick'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.
