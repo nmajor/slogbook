@@ -1,16 +1,19 @@
 <section class="slog_preview" id="slog_item_<%= slog.id %>">
-    <div class="slog_preview_head">
-        <img src="http://placekitten.com/50/50" class="usr_img_small" title="user.username"/>
-        <span class="user"><%= link_to slog.user.username, user_show_path(slog.user) %></span>
+    <span class="slog_type"><%= slog.slog_type.name %></span>
+    <!-- this should link to the user">-->
+    <a href="#linktoprofile" class="slog_preview_head">
+        <img src="http://placekitten.com/40/40" class="usr_img_small" title="user.username"/>
+        <!-- <span class="user"><%#= link_to slog.user.username, user_show_path(slog.user) %></span>-->
+        <!-- make this not a link, just the name -->
+        <span class="user"><%= user_show_path(slog.user) %></span>
         <span class="created"><%= time_ago_in_words(slog.created_at) %> ago</span> 
-    </div>
+    </a>
     <div class="slog_preview_content">
         <h3><%= link_to slog.title, slog_path(slog) %></h3>
         <% if slog.mission %>
         <!-- this should link to a page with posts from this mission -->
         <h5 class="mission"><a href="#mission" title="Read more posts from %mission.name%"><%= slog.mission.name %></a></h5>
         <% end %>
-        <span class="slog_type"><%= slog.slog_type.name %></span>
         <p class="excerpt"><%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %></p>
         <div class="slog_image">
             <img src="http://placekitten.com/320/200" title="<%# title, tag1, tag2, tag3 %>" width="100%" height="auto" />
