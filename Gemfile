@@ -18,6 +18,7 @@ gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'friendly_id'
 gem 'profanity_filter'
+gem 'acts_as_votable'
 
 # Gems used only for assets and not required
 # in production environments by default.

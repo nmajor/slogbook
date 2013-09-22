@@ -1,13 +1,6 @@
 <section class="slog_preview" id="slog_item_<%= slog.id %>">
     <span class="slog_type"><%= slog.slog_type.name %></span>
-    <!-- this should link to the user">-->
-    <a href="#linktoprofile" class="slog_preview_head">
-      <img src="http://placekitten.com/40/40" class="usr_img_small" title="<%= slog.user.username %>"/>
-        <!-- <span class="user"><%#= link_to slog.user.username, user_show_path(slog.user) %></span>-->
-        <!-- make this not a link, just the name -->
-        <span class="user"><%= link_to slog.user.username, user_show_path(slog.user) %></span>
-        <span class="created"><%= time_ago_in_words(slog.created_at) %> ago</span> 
-    </a>
+    <%= link_to render("slog_item_user_link", :slog => slog), user_show_path(slog.user) %>
     <div class="slog_preview_content">
         <h3><%= link_to slog.title, slog_path(slog) %></h3>
         <% if slog.mission %>
@@ -16,22 +9,19 @@
         <% end %>
         <p class="excerpt"><%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %></p>
         <div class="slog_image">
-            <img src="http://placekitten.com/320/200" title="<%# title, tag1, tag2, tag3 %>" width="100%" height="auto" />
+          <img src="http://placekitten.com/320/200" title="<%= slog.tag_list.map { |t| t }.join(", ") %>" width="100%" height="auto" />
             <%# can you make the thumb this size? %>
             <%#= slog_thumb(slog) %>
         </div>
         <div class="slog_preview_footer">
             <div class="slog_item_vote">
-                <span class="slog_item_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></span>
-                <span class="slog_item_score rounded">2156</span>
+                <span class="slog_item_upvote"><%= link_to "^", "#" %></span>
+                <span class="slog_item_score"><%= slog.likes.size %></span>
             </div>
             <ul class="tags">
-                <%#for each tag: %>
-                <li><a href="#link" title="See more about <%# tag %>">tag</a></li>
-                <%# end %>
-                <!-- TODO: make the tags into list items like above -->
-                <!-- TODO: move line below to helper method. Probably shouldnt be calling raw in view -->
-                <%#= raw slog.tag_list.map { |t| link_to t, tag_path(t), :class => "tag" }.join() %>
+                <% slog.tag_list.each do |tag| %>
+                  <li><%= link_to tag, tag_path(tag), :title => "See more about #{tag}" %></li>
+                <% end %>
             </ul>
             <span class="comments">
                 <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog) %>

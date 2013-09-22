@@ -3,6 +3,7 @@ class Slog < ActiveRecord::Base
     :image_cache, :remove_image, :remote_image_url, :tag_list
   acts_as_taggable_on :tags
   acts_as_commentable
+  acts_as_votable
   mount_uploader :image, ImageUploader
   belongs_to :user  
   belongs_to :slog_type
