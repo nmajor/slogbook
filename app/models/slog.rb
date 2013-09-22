@@ -9,4 +9,5 @@ class Slog < ActiveRecord::Base
   belongs_to :mission
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
+  profanity_filter :body, :title
 end
