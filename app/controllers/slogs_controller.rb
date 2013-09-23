@@ -60,6 +60,7 @@ class SlogsController < ApplicationController
   def create
     @slog = Slog.new(params[:slog])
     @slog.user_id = current_user.id
+    @slog.title = @slog.title.titleize
     respond_to do |format|
       if @slog.save
         format.html { redirect_to @slog, notice: 'Slog was successfully created.' }
@@ -75,7 +76,7 @@ class SlogsController < ApplicationController
   # PUT /slogs/1.json
   def update
     @slog = Slog.find(params[:id])
-
+    @slog.title = @slog.title.titleize
     respond_to do |format|
       if @slog.update_attributes(params[:slog])
         format.html { redirect_to @slog, notice: 'Slog was successfully updated.' }
