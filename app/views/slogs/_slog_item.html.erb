@@ -1,19 +1,21 @@
 <section class="slog_preview" id="slog_item_<%= slog.id %>">
-    <span class="slog_type"><%= slog.slog_type.name %></span>
-    <%= link_to render("slog_item_user_link", :slog => slog), user_show_path(slog.user) %>
     <div class="slog_preview_content">
-        <h3><%= link_to slog.title, slog_path(slog) %></h3>
-        <% if slog.mission %>
-        <!-- this should link to a page with posts from this mission -->
-        <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
-        <% end %>
-        <p class="excerpt"><%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %></p>
         <div class="slog_image">
           <img src="http://placekitten.com/320/200" title="<%= slog.tag_list.map { |t| t }.join(", ") %>" width="100%" height="auto" />
             <%# can you make the thumb this size? %>
             <%#= slog_thumb(slog) %>
         </div>
-        <div class="slog_preview_footer">
+        <h3><%= link_to slog.title, slog_path(slog) %></h3>
+        <% if slog.mission %>
+        <!-- this should link to a page with posts from this mission -->
+        <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
+        <% end %>
+        <div class="slog_preview_mid">
+            <%= link_to render("slog_item_user_link", :slog => slog), user_show_path(slog.user), :class => "slog_preview_user" %>
+            <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog), :class => "comments" %>
+        </div>
+        <section class="preview_content">
+            <p class="excerpt"><%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %></p>
             <div class="slog_item_vote">
                 <span class="slog_item_upvote"><%= link_to "^", "#" %></span>
                 <span class="slog_item_score"><%= slog.likes.size %></span>
@@ -23,9 +25,7 @@
                   <li><%= link_to tag, tag_path(tag), :title => "See more about #{tag}" %></li>
                 <% end %>
             </ul>
-            <span class="comments">
-                <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog) %>
-            </span>
-        </div>
+        </section>
     </div>
+    <span class="slog_type"><%= slog.slog_type.name %></span>
 </section>
