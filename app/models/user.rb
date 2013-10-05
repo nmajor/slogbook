@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :missions, :through => :missionships
   has_one :call
   has_one :mission, :through => :call
+  extend FriendlyId
+  friendly_id :username
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

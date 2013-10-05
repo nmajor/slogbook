@@ -15,7 +15,6 @@
             <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog), :class => "comments" %>
         </div>
         <section class="preview_content">
-            <p class="excerpt"><%= truncate(strip_tags(slog.body), :length => 250, :separator => ' ').html_safe %></p>
             <div class="slog_item_vote">
                 <span class="slog_item_upvote"><%= link_to "^", "#" %></span>
                 <span class="slog_item_score"><%= slog.likes.size %></span>

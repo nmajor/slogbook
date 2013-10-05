@@ -11,18 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922061943) do
-
-  create_table "callings", :force => true do |t|
-    t.integer  "mission_id"
-    t.integer  "user_id"
-    t.date     "start_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "callings", ["mission_id"], :name => "index_callings_on_mission_id"
-  add_index "callings", ["user_id"], :name => "index_callings_on_user_id"
+ActiveRecord::Schema.define(:version => 20131005050707) do
 
   create_table "calls", :force => true do |t|
     t.integer  "mission_id"
@@ -55,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130922061943) do
     t.integer  "commentable_id",   :default => 0
     t.string   "commentable_type", :default => ""
     t.string   "title",            :default => ""
-    t.text     "body"
+    t.text     "body",             :default => ""
     t.string   "subject",          :default => ""
     t.integer  "user_id",          :default => 0,  :null => false
     t.integer  "parent_id"
@@ -99,6 +88,16 @@ ActiveRecord::Schema.define(:version => 20130922061943) do
   add_index "missionships", ["mission_id"], :name => "index_missionships_on_mission_id"
   add_index "missionships", ["user_id"], :name => "index_missionships_on_user_id"
 
+  create_table "slog_blocks", :force => true do |t|
+    t.integer  "slog_id"
+    t.integer  "image"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "slog_blocks", ["slog_id"], :name => "index_slog_blocks_on_slog_id"
+
   create_table "slog_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -107,13 +106,12 @@ ActiveRecord::Schema.define(:version => 20130922061943) do
 
   create_table "slogs", :force => true do |t|
     t.string   "title"
-    t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "slog_type_id"
     t.integer  "mission_id"
-    t.string   "image"
+    t.string   "featured_image"
     t.string   "slug"
   end
 
@@ -140,28 +138,28 @@ ActiveRecord::Schema.define(:version => 20130922061943) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",       :null => false
-    t.string   "encrypted_password",                  :default => "",       :null => false
+    t.string   "email",                  :default => "",       :null => false
+    t.string   "encrypted_password",     :default => "",       :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",                     :default => 0
+    t.integer  "failed_attempts",        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                                :null => false
-    t.datetime "updated_at",                                                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "username"
     t.string   "avatar"
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "gender",                 :limit => 1
+    t.string   "gender"
     t.date     "dob"
-    t.string   "role",                                :default => "author"
+    t.string   "role",                   :default => "author"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

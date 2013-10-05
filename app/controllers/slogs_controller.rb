@@ -43,6 +43,8 @@ class SlogsController < ApplicationController
   # GET /slogs/new.json
   def new
     @slog = Slog.new
+    @slog_block = SlogBlock.new
+    @slog.slog_blocks << @slog_block
 
     respond_to do |format|
       format.html # new.html.erb
