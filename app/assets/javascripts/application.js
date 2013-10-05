@@ -17,3 +17,9 @@
 //= require ckeditor/init
 //= require_tree .
 //= require holder
+
+$(function() {
+    $('.toggle_nav').on('click',function() {
+        $('.nav').toggleClass('active');
+    });
+});

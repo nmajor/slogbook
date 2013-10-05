@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
             body {
-                padding-top: 50px;
                 padding-bottom: 20px;
             }
         </style>
@@ -25,6 +24,10 @@
 <![endif]-->
 <section class="page">
     <h1><%= link_to "", root_path, :class => "logo", :title => "Missionary Slog Book - Home" %></h1>
+    <ul class="mini_nav">
+        <li class="toggle_nav">Nav</li>
+        <li class="toggle_login">Login</li>
+    </ul>
     <ul class="nav">
         <li><%= link_to "Blog" %></li>
         <li><%= link_to "Slog" %></li>
@@ -38,16 +41,14 @@
             <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
         <% end %>
     </section>
-
-    <section class="brand_bar container">
-        <div class="search">
-            <span><input type="text" class="search_input" placeholder="Search..."></span>
-        </div>
-    </section>
-
+    
     <% if params[:controller] == "slogs" && params[:action] == "index" %>
+    <span class="toggle_filter">Filter</span>
     <section class="filter_bar container">
         <section class="slog_filters">
+            <div class="search">
+                <span><input type="text" class="search_input" placeholder="Search..."></span>
+            </div>
             <%= form_tag :method => 'get' do %>
                 <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
                 <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
@@ -56,11 +57,11 @@
                 <%= select_tag "time_filter", options_for_select(@times) %>
             <% end %>
         </section>
-        <div class="new_slog">
-            <% if user_signed_in? %>
-            <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
-            <% end %>
-        </div>
+        <% if user_signed_in? %>
+            <div class="new_slog">
+                <%= link_to "New Slog", new_slog_path,:class => "btn btn-info btn-mini" %>
+            </div>
+        <% end %>
     </section>
     <% end %>
 
