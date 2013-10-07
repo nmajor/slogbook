@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005050707) do
+ActiveRecord::Schema.define(:version => 20131006045921) do
 
   create_table "calls", :force => true do |t|
     t.integer  "mission_id"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20131005050707) do
 
   create_table "slog_blocks", :force => true do |t|
     t.integer  "slog_id"
-    t.integer  "image"
+    t.string   "image"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

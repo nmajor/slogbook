@@ -11,7 +11,7 @@
         <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
         <% end %>
         <div class="slog_preview_mid">
-            <%= link_to render("slog_item_user_link", :slog => slog), user_show_path(slog.user), :class => "slog_preview_user" %>
+            <%= link_to slog.user.username, user_show_path(slog.user) %>
             <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog), :class => "comments" %>
         </div>
         <section class="preview_content">

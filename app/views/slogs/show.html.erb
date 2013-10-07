@@ -19,13 +19,16 @@
             <div id="slog_tags">tags: <%= raw @slog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div>
             <div id="slog_header_foot">
                 <div id="slog_auth_time">
-                    <span id="slog_author">by <%= @slog.user.username %></span>
+                    <span id="slog_author">by <%= link_to @slog.user.username, user_show_path(@slog.user) %></span>
                     <span id="slog_time"><%= time_ago_in_words(@slog.created_at) %> ago</span>
                 </div>
                 <div id="slog_mission"><%= @slog.mission  ? @slog.mission.name : ''  %></div>
             </div>
         </section>
-        <section id="slog_body"><%= raw @slog.body %></div>
+        <section id="slog_content">
+          <% @slog.slog_blocks.each do |sb| %>
+            <%= render "slog_block", sb: sb %>
+          <% end %>
             <div id="slog_actions">
                 <% if can? :update, @slog %>
                 <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -13,14 +13,10 @@
         </div>
     </div>
     <div class="form_blocks">
-      <%= f.fields_for :slog_blocks do |b| %>
-        <fieldset>
-          <%= b.label :image, "Block Image" %>
-          <%= b.file_field :image %>
-          <%= b.label :body, "Block Text" %>
-          <%= b.text_area :body %>
-        </fieldset>
+      <%= f.fields_for :slog_blocks do |builder| %>
+        <%= render 'slog_block_form', f: builder %>
       <% end %>        
+      <%= link_to_add_block "Add Block", f %>
     </div>
     <div class="form_actions"><%= f.submit nil, :class => 'btn btn-primary' %></div>
 <% end %>

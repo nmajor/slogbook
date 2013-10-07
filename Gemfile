@@ -6,10 +6,10 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'sqlite3'
+
 gem 'devise'
 gem 'cancan'
-gem 'holder_rails'
+
 gem 'carrierwave'
 gem 'rmagick'
 gem 'acts-as-taggable-on'
@@ -20,6 +20,12 @@ gem 'rails3-jquery-autocomplete'
 gem 'friendly_id'
 gem 'profanity_filter'
 gem 'acts_as_votable'
+
+group :development do
+  gem 'sqlite3'
+  gem 'holder_rails'
+  gem 'better_errors'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
