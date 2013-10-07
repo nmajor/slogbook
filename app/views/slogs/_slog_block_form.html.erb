@@ -1,0 +1,9 @@
+<fieldset>
+  <%= image_tag f.object.image_url if f.object.image_url %>
+  <%= f.label :image, "Block Image" %>
+  <%= f.file_field :image %><br>
+  <%= f.label :body, "Block Text" %>
+  <%= f.text_area :body %><br>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Delete Block", "#", class: "delete_block" %>
+</fieldset>
