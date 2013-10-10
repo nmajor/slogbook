@@ -105,14 +105,17 @@ class SlogsController < ApplicationController
   def comment
     slog = Slog.find params[:id]
     text = params[:comment_text]
-    comment = Comment.build_from( slog, current_user.id, text )
-    if comment.save
+    @comment = Comment.build_from( slog, current_user.id, text )
+    if @comment.save
       if(params[:parent])
-        comment.move_to_child_of(Comment.find params[:parent])
+        @comment.move_to_child_of(Comment.find params[:parent])
       end
-      redirect_to :back, notice: "Comment added successfully"
+      @success = 1;
     else
-      redirect_to :back, error: "Failed to add comment"
+      @success = 0;
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

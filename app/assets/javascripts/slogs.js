@@ -4,11 +4,15 @@ jQuery(function() {
     $(this).closest('fieldset').hide();
     return event.preventDefault();
   });
-  return $('form').on('click', '.add_block', function(event) {
+  $('form').on('click', '.add_block', function(event) {
     var regexp, time;
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regexp, time));
     return event.preventDefault();
+  });
+  $('.comment_reply').on("click", function(){
+    console.log(this);
+    $(this).next('.add_comment').show('slow');
   });
 });
