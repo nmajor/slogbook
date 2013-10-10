@@ -15,14 +15,12 @@
     box-shadow:         0px 1px 13px rgba(50, 50, 50, 0.07);
     .grey_border;
 }
+@black:#000000;
 @darkgrey:#5B5C5E;
 @bluegrey:#676F78;
 @lightgrey:#ADADAD;
 @light:#E0E2E6;
 @blue:#5E7F9C;
-body {
-padding:0;
-}
 .home h1 {
 margin:0;
 font-size:1em;
@@ -50,12 +48,16 @@ opacity:1;
 -moz-border-radius: 4px;
 border-radius: 4px;
 }
+html body, body h1, nody h2, body h3, body h4, body h5, body h6 {
+font-family: 'Montserrat', sans-serif;
+}
 body {
+padding:0;
 background:@light;
 background-color:@light !important;
-color:@darkgrey;
+color:#000;
 }
-.container {
+body .container {
 padding-left:0;
 padding-right:0;
 }
@@ -74,6 +76,11 @@ border-bottom: #ddd solid 1px;
 -webkit-box-shadow:inset 0 0 2em rgba(0, 0, 0, 0.1);
 border-bottom: #ddd solid 1px;
         box-shadow:inset 0 0 2em rgba(0, 0, 0, 0.1);
+-webkit-transition: all 0.3s ease-out;
+-moz-transition: all 0.3s ease-out;
+-o-transition: all 0.3s ease-out;
+transition: all 0.3s ease-out;
+clear:both;
 }
 .slog_type {
 position:absolute;
@@ -87,65 +94,43 @@ color:#fff;
 -o-transform: rotate(-90deg);
 display:none;
 }
-.slog_preview_head {
-display:block;
-margin:0 0 .5em 0;
-padding:.3em;
-font-size:.9em;
-}
-.slog_preview_head:hover {
-background:#efefef;
-text-decoration:none;
-}
-.slog_preview_head img {
-display:inline;
-float:left;
-margin:0 1em 0 0;
-width:3em;
-height:3em;
-}
-.slog_preview_head .user {
-display:block;
-margin:0 0 .3em;
-}
-.slog_preview_head .created {
-color:@lightgrey;
-font-size:.9em;
-}
-.slog_preview_content h3 {
+.preview_content h3 {
 margin:0;
 }
-.slog_preview_content h3 a {
-color:@darkgrey;
-text-decoration:none;
-padding:.2em;
-padding-left:1em;
-line-height:1.2em;
-cursor:pointer;
-display:block;
-font-size:.7em;
-margin-left:4em;
+.preview_content h3 a {
+color: @black;
+text-decoration: none;
+padding: .2em;
+padding-left: 1em;
+line-height: 1.2em;
+cursor: pointer;
+display: block;
+font-size: .8em;
+font-weight: 700;
+}
+.preview_content.active h3 a {
+margin-bottom:1em;
 }
 .mission {
-margin:0 0 0 6em;
+margin:0 0 .5em 0em;
+display:block;
+height:1.2em;
 }
 .mission a{
 text-decoration: none;
-padding: .3em 1em;
-background:@light;
-color: @lightgrey;
-font-size: 0.8em;
-margin:0 0 0 5.5em;
-display: inline;
-position:absolute;
-right:0;
+margin:0;
 }
 .mission a:hover {
 text-decoration:none;
 }
 .slog_preview .slog_image {
-display:block;
+display:inline-block;
 position:relative;
+float:left;
+margin:0 1em 0 0;
+}
+.slog_preview.active .slog_image {
+margin:0 1em 1em 0;
 }
 .slog_preview .slog_image::before {
 content: "";
@@ -180,33 +165,77 @@ margin: 0;
 max-width:100%;
 margin-bottom:.1em;
 }
-.slog_preview_mid {
-position:relative;
-display:block;
-margin:1.2em 0 0 6em;
+.slog_preview_box {
+margin: 0;
+color: @lightgrey;
+font-size: 0.8em;
+position: relative;
+width: 100%;
+display: block;
+padding: .1em 1em;
+text-align: right;
 }
-.slog_preview_mid a {
+.slog_preview_box a {
 display:block;
+color:@lightgrey;
 }
 .comments,
 .slog_preview_user {
-font-size:.8em;
 color:@lightgrey;
 text-decoration:none;
 }
 .usr_img_small {
 display:none;
 }
-.preview_content {
-display:none;
+.mission,
+.slog_item_vote,
+.preview_copy,
+.tags {
+height:0;
+padding:0;
+overflow:hidden;
+margin:0;
 }
-.slog_preview_footer {
+.slog_item_vote {
+color: #fff;
+position: absolute;
+display: block;
+width: 3em;
+text-align: center;
+left: -3em;
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+top:0;
+height:0;
+}
+.active .slog_preview_box,
+.active .slog_item_vote,
+.active .preview_copy,
+.active .tags {
+height:auto;
+}
+.active .preview_copy {
+margin-bottom:1em;
+}
+.active .slog_preview_box {
+width:100%;
+text-align:right;
+border-left:3em solid @blue;
+background: #efefef;
+-webkit-border-radius: .25em;
+border-radius: .25em;
+background-clip: padding-box;
+padding: 0.5em;
+}
+.preview_copy,
+.preview_content .tags {
 clear:both;
 }
-.slog_preview_footer .tags li {
+.preview_content .tags li {
 display:inline;
 }
-.slog_preview_footer .tags li a {
+.preview_content .tags li a {
 color:#ccc;
 padding:.3em;
 font-size:.7em;

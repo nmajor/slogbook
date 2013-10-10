@@ -22,4 +22,10 @@ $(function() {
     $('.toggle_nav').on('click',function() {
         $('.nav').toggleClass('active');
     });
+    $('.slog_preview a').on('click', function(e) {
+        e.preventDefault;
+    });
+    $('.slog_preview:not(active)').on('click', function() {
+        $(this).addClass('active');
+    });
 });

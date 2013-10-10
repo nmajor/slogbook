@@ -1,30 +1,26 @@
 <section class="slog_preview" id="slog_item_<%= slog.id %>">
-    <div class="slog_preview_content">
-        <div class="slog_image">
-          <img src="http://placekitten.com/320/200" title="<%= slog.tag_list.map { |t| t }.join(", ") %>" width="100%" height="auto" />
+    <div class="preview_content">
+        <span class="slog_image">
+          <img src="http://lorempixel.com/320/200/people" title="<%= slog.tag_list.map { |t| t }.join(", ") %>" width="100%" height="auto" />
             <%# can you make the thumb this size? %>
             <%#= slog_thumb(slog) %>
-        </div>
+        </span>
         <h3><%= link_to slog.title, slog_path(slog) %></h3>
-        <% if slog.mission %>
-        <!-- this should link to a page with posts from this mission -->
-        <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
-        <% end %>
-        <div class="slog_preview_mid">
+        <p class="preview_copy">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <section class="slog_preview_box">
+            <% if slog.mission %>
+            <!-- this should link to a page with posts from this mission -->
+            <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
+            <% end %>
             <%= link_to slog.user.username, user_show_path(slog.user) %>
             <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog), :class => "comments" %>
-        </div>
-        <section class="preview_content">
-            <div class="slog_item_vote">
-                <span class="slog_item_upvote"><%= link_to "^", "#" %></span>
-                <span class="slog_item_score"><%= slog.likes.size %></span>
-            </div>
-            <ul class="tags">
-                <% slog.tag_list.each do |tag| %>
-                  <li><%= link_to tag, tag_path(tag), :title => "See more about #{tag}" %></li>
-                <% end %>
-            </ul>
+            <span class="slog_item_vote"><%= slog.likes.size %></span>
         </section>
+        <ul class="tags">
+            <% slog.tag_list.each do |tag| %>
+              <li><%= link_to tag, tag_path(tag), :title => "See more about #{tag}" %></li>
+            <% end %>
+        </ul>
     </div>
     <span class="slog_type"><%= slog.slog_type.name %></span>
 </section>
