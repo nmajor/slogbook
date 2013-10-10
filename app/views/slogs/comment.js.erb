@@ -1,0 +1,7 @@
+<% if @comment.parent %>
+  $('#nested_comments_<%= @comment.parent.id %>').prepend(' <%= j render "shared/comment", comment: @comment, :parent => @comment.id %> ');
+<% else %>
+  $('#slog_comments').prepend(' <%= j render "shared/comment", comment: @comment, :parent => @comment.id %> ');
+<% end %>
+$('.add_comment').hide();
+$('.comment_text').val('');

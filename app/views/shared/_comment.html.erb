@@ -1,7 +1,7 @@
 <div class="comment" id="comment_<%= comment.id %>">
   <div class="comment_sidebar">
     <div class="comment_user_image">
-      <%= holder_tag '64x64' %>
+      <%= image_tag comment.user.avatar_url(:thumb).to_s %>
     </div>
   </div>
   <div class="comment_content">
@@ -11,9 +11,10 @@
       <div class="comment_replies"><%= comment.children.size %> replies</div>
     </div>
     <div class="comment_body"><%= comment.body %></div>
+    <div class="comment_reply">reply</div>
     <%= render "shared/add_comment", :parent => comment.id %>
   </div>
-  <div class="nested_comments">
+  <div class="nested_comments" id="nested_comments_<%= comment.id %>">
     <% if( comment.has_children?) %>
       <% for child_comment in comment.children %>
         <%= render "shared/comment", :comment => child_comment, :parent => comment.id %>

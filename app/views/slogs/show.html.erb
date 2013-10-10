@@ -44,11 +44,11 @@
             </div>
         </section>
     </article>
-    <section class="slog_comments">
+    <section id="slog_comments">
         <% if user_signed_in? %>
         <div id="add_new_comment">
             <h4>Add Comment<h4>
-            <%= render "shared/add_comment", :parent => nil %>
+              <%= render "shared/add_comment", :parent => nil %>
         </div>
         <% end %>
         <% for comment in @slog.root_comments %>

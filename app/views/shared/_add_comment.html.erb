@@ -1,6 +1,10 @@
-<div id="add_comment_<%= parent %>" class="add_comment">
-  <%= form_tag({controller: "slogs", action: "comment", parent: parent }, method: "post") do %>
-    <%= text_area_tag(:comment_text) %><br />
+<% if ! parent %>
+  <div id="add_comment_<%= parent %>" class="add_root_comment">
+<% else %>
+  <div id="add_comment_<%= parent %>" class="add_comment">
+<% end %>
+  <%= form_tag({controller: "slogs", action: "comment", parent: parent }, method: "post", remote: true) do %>
+  <%= text_area_tag :comment_text, nil, class: 'comment_text' %><br />
     <%= submit_tag("Save") %>
   <% end %>
 </div>
