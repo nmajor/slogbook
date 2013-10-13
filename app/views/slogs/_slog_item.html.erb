@@ -13,6 +13,7 @@
             <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
             <% end %>
             <%= link_to slog.user.username, user_show_path(slog.user) %>
+            <%= time_ago_in_words(slog.created_at) %> ago
             <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog), :class => "comments" %>
             <span class="slog_item_vote"><%= slog.likes.size %></span>
         </section>
