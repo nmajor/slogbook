@@ -1,6 +1,4 @@
 S::Application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
-
   get "styles", :as => :styles_show, to: "styles#index"
 
   devise_for :users, :controllers => { :registrations => "registrations" }
@@ -12,8 +10,6 @@ S::Application.routes.draw do
   end
   get 'tags/:tag', to: 'slogs#index', as: :tag
   resources :missions
-
-  mount Ckeditor::Engine => "/ckeditor"
 
   get "users/:id", :as => :user_show, to: "users#show"
 

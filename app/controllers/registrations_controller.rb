@@ -1,4 +1,19 @@
 class RegistrationsController < Devise::RegistrationsController
+  
+  # def create
+    # Add recaptcha keys to config/initializers/recaptcha.rb
+    # <%= recaptcha_tags display: { theme: 'white' } %>
+    # if verify_recaptcha
+    #  super
+    # else
+    #  build_resource
+    #  clean_up_passwords(resource)
+    #  flash.now[:alert] = "There was an error with the recaptcha code below. Please re-enter the code."      
+    #  flash.delete :recaptcha_error
+    #  render :new
+    # end
+  # end
+  
   def update
     @user = User.find(current_user.id)
 
@@ -30,4 +45,5 @@ class RegistrationsController < Devise::RegistrationsController
     user.email != params[:user][:email] ||
       params[:user][:password].present?
   end
+
 end

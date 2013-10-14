@@ -13,14 +13,18 @@ gem 'cancan'
 
 gem 'carrierwave'
 gem 'rmagick'
+
 gem 'acts-as-taggable-on'
 gem 'acts_as_commentable_with_threading'
-gem 'ckeditor'
-gem 'jquery-ui-rails'
-gem 'rails3-jquery-autocomplete'
 gem 'friendly_id'
 gem 'profanity_filter'
 gem 'acts_as_votable'
+gem "recaptcha", :require => "recaptcha/rails"
+
+gem 'therubyracer'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 
 group :development do
   gem 'sqlite3'
@@ -31,7 +35,6 @@ end
 # in production environments by default.
 group :assets do
   gem 'less-rails'
-  # gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -40,8 +43,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'therubyracer'
-gem 'jquery-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

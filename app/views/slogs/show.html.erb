@@ -1,15 +1,12 @@
 <section class="row">
     <article id="slog_content">
         <div id="slog_header">
-            <% if @slog.featured_image_url %>
             <div id="slog_header_image">
                 <%= slog_image(@slog) %>
             </div>
-            <% end %>
         </div>
         <div id="slog_header_body">
             <div id="slog_header_head">
-                <div id="slog_type"><%= @slog.slog_type.name %></div>
                 <div id="slog_vote">
                     <div id="slog_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></div>
                     <div id="slog_score">48375</div>

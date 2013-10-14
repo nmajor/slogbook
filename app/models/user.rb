@@ -4,8 +4,18 @@ class User < ActiveRecord::Base
   has_many :missions, :through => :missionships
   has_one :call
   has_one :mission, :through => :call
+  
   extend FriendlyId
   friendly_id :username
+  
+  after_validation :validate_reserved
+
+  def validate_reserved
+    if @errors[:friendly_id].present?
+      @errors[:username] = "is reserved. Please choose something else"
+      @errors.messages.delete(:friendly_id)
+    end
+  end
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -15,8 +25,7 @@ class User < ActiveRecord::Base
     :lockable 
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :login, :image, :role,
                   :dob, :firstname, :lastname, :gender, :avatar, :avatar_cache, :remove_avatar, :remote_avatar_url
-  attr_readonly :username
-  validates_uniqueness_of :username
+
   attr_accessor :login
   mount_uploader :avatar, AvatarUploader
 

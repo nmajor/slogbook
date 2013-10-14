@@ -11,7 +11,6 @@ class SlogsController < ApplicationController
     else
       @slogs = Slog.all
     end
-    @slog_types = SlogType.all
     @times = { "All Time" => "all",
               "Past Week" => "1week", 
               "Past Month" => "1month", 

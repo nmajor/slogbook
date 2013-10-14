@@ -17,3 +17,4 @@
 /config/database.yml
 /public/uploads/*
 *.swp
+/config/initializers/recaptcha.rb

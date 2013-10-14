@@ -56,7 +56,6 @@ to improve your experience.</p>
                 <%= submit_tag "Filter", class: "btn btn-info btn-mini", :id => "submit_filter" %>
                 <%= text_field_tag "mission_filter", nil, :placeholder => "Missions..." %>
                 <%= text_field_tag "tag_filter", nil, :placeholder => "Tags..." %>
-                <%= select_tag "slog_type_filter", options_from_collection_for_select(@slog_types, "id", "name") %>
                 <%= select_tag "time_filter", options_for_select(@times) %>
             <% end %>
         </section>
