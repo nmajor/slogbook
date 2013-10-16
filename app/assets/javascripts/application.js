@@ -18,8 +18,8 @@
 //= require holder
 
 $(function() {
-    $('.toggle_nav').on('click',function() {
-        $('.nav').toggleClass('active');
+    $('.mini_nav').on('click',function() {
+        $('.page').toggleClass('nav_active');
     });
     $('.slog_preview a').on('click', function(e) {
         e.preventDefault;
