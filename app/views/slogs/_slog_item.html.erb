@@ -6,7 +6,7 @@
             <%#= slog_thumb(slog) %>
         </span>
         <h3><%= link_to slog.title, slog_path(slog) %></h3>
-        <p class="preview_copy">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <p class="preview_copy"><%= slog.slog_blocks[0].body %></p>
         <section class="slog_preview_box">
             <% if slog.mission %>
             <!-- this should link to a page with posts from this mission -->

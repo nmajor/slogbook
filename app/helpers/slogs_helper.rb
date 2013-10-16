@@ -2,7 +2,7 @@ module SlogsHelper
 
   def slog_thumb( slog )
     if slog.slog_blocks[0].image_url(:thumb)
-      return slog.slog_blocks[0].image_url(:thumb).to_s
+      return image_tag slog.slog_blocks[0].image_url(:thumb).to_s
     else
       return holder_tag "100x100", "No Featured Image"
     end
@@ -10,7 +10,7 @@ module SlogsHelper
   
   def slog_image( slog )
     if slog.slog_blocks[0].image_url
-      return image_tag slog.slog_blocks[0].image_url
+      return image_tag slog.slog_blocks[0].image_url.to_s
     else
       return holder_tag "260x260", "No Featured Image"
     end

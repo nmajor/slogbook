@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131013053457) do
+ActiveRecord::Schema.define(:version => 20131006045921) do
 
   create_table "calls", :force => true do |t|
     t.integer  "mission_id"
@@ -24,11 +24,27 @@ ActiveRecord::Schema.define(:version => 20131013053457) do
   add_index "calls", ["mission_id"], :name => "index_calls_on_mission_id"
   add_index "calls", ["user_id"], :name => "index_calls_on_user_id"
 
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
     t.string   "commentable_type", :default => ""
     t.string   "title",            :default => ""
-    t.text     "body",             :default => ""
+    t.text     "body"
     t.string   "subject",          :default => ""
     t.integer  "user_id",          :default => 0,  :null => false
     t.integer  "parent_id"
@@ -82,13 +98,20 @@ ActiveRecord::Schema.define(:version => 20131013053457) do
 
   add_index "slog_blocks", ["slog_id"], :name => "index_slog_blocks_on_slog_id"
 
+  create_table "slog_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "slogs", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "slog_type_id"
     t.integer  "mission_id"
+    t.string   "featured_image"
     t.string   "slug"
   end
 
@@ -115,28 +138,28 @@ ActiveRecord::Schema.define(:version => 20131013053457) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",       :null => false
-    t.string   "encrypted_password",     :default => "",       :null => false
+    t.string   "email",                               :default => "",       :null => false
+    t.string   "encrypted_password",                  :default => "",       :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",        :default => 0
+    t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
     t.string   "username"
     t.string   "avatar"
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "gender"
+    t.string   "gender",                 :limit => 1
     t.date     "dob"
-    t.string   "role",                   :default => "author"
+    t.string   "role",                                :default => "author"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
