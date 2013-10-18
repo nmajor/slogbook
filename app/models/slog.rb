@@ -10,7 +10,8 @@ class Slog < ActiveRecord::Base
   accepts_nested_attributes_for :slog_blocks, allow_destroy: true
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history, :reserved]
-  profanity_filter :title
   validates :title, presence: { message: "for your slog is required" }
   validates :title, length: { in: 10..55, message: "must be between 10 and 55 characters" } 
+  validates_with ProfanityValidator, fields: [:title]
+  validates_with SlogBlockValidator
 end

@@ -6,10 +6,11 @@ class SlogsController < ApplicationController
   # GET /slogs
   # GET /slogs.json
   def index
+    slogs_per_page = 5
     if params[:tag]
-      @slogs = Slog.tagged_with(params[:tag])
+      @slogs = Slog.order("cached_votes_up DESC").tagged_with(params[:tag]).page(params[:page]).per_page(slogs_per_page)
     else
-      @slogs = Slog.all
+      @slogs = Slog.order("cached_votes_up DESC").page(params[:page]).per_page(slogs_per_page)
     end
     @times = { "All Time" => "all",
               "Past Week" => "1week", 
@@ -117,5 +118,28 @@ class SlogsController < ApplicationController
       format.js
     end
   end
+  
+  def upvote
+    @slog = Slog.find params[:id]
+    @slog.vote :voter => current_user, :vote => 'up'
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def flag
+    @slog = Slog.find params[:id]
+    @slog.vote :voter => current_user, :vote => 'down'
+    respond_to do |format|
+      format.js
+    end
+  end
 
 end
+
+
+
+
+
+
+

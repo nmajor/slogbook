@@ -2,7 +2,7 @@ module SlogsHelper
 
   def slog_thumb( slog )
     if slog.slog_blocks[0].image_url(:thumb)
-      return image_tag slog.slog_blocks[0].image_url(:thumb).to_s
+      return image_tag slog.slog_blocks[0].image_url(:thumb).to_s, title: slog.tag_list.map { |t| t }.join(", "), width: '%100', height: 'auto'
     else
       return holder_tag "100x100", "No Featured Image"
     end
@@ -25,4 +25,20 @@ module SlogsHelper
     link_to name, '#', class: "add_block", data: { id: id, fields: fields.gsub('\n', '') }
   end
 
+  def upvote_slog( slog )
+    if current_user && current_user.voted_as_when_voted_for(slog) == true
+      return "up"
+    else 
+      return link_to "up", upvote_slog_path(slog), method: "post", remote: true
+    end
+  end
+  
+  def flag_slog( slog )
+    if current_user && current_user.voted_as_when_voted_for(slog) == false
+      return "Flagged as inappropriate"
+    else 
+      return link_to "Flag as inappropriate", flag_slog_path(slog), method: "post", remote: true
+    end
+  end
+  
 end

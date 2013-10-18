@@ -6,9 +6,11 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :banned
-      can :read, :all
+      can :read, Slog
+      can :read, User
     else
-      can :read, :all
+      can :read, Slog
+      can :read, User
       if user.role?(:author)
         # can :create, Comment
         # can :update, Comment do |comment|
@@ -17,6 +19,9 @@ class Ability
         can :autocomplete, Mission
         can :autocomplete_tag_name, Slog
         can :create, Slog
+        can :upvote, Slog
+        can :flag, Slog
+        can :comment, Slog
         can :update, Slog do |slog|
           slog.try(:user) == user
         end

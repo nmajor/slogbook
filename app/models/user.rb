@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :missions, :through => :missionships
   has_one :call
   has_one :mission, :through => :call
+  acts_as_voter
   
   extend FriendlyId
   friendly_id :username

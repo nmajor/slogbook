@@ -5,3 +5,7 @@
 <% end %>
 $('.add_comment').hide();
 $('.comment_text').val('');
+$('.comment_reply').on("click", function(){
+  console.log(this);
+  $(this).next('.add_comment').show('slow');
+});

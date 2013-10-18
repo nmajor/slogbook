@@ -8,8 +8,9 @@
         <div id="slog_header_body">
             <div id="slog_header_head">
                 <div id="slog_vote">
-                    <div id="slog_upvote"><%= link_to "", "#", :class => "icon-arrow-up" %></div>
-                    <div id="slog_score">48375</div>
+                    <div id="slog_upvote_<%= @slog.id %>" class="slog_upvote"><%= upvote_slog(@slog) %></div>
+                    <div id="slog_score_<%= @slog.id %>" class="slog_score"><%= @slog.upvotes.size %></div>
+                    <div id="slog_flag_<%= @slog.id %>" class="slog_flag"><%= flag_slog(@slog) %></div>
                 </div>
             </div>
             <div id="slog_title"><%= @slog.title %></div>
@@ -41,12 +42,12 @@
             </div>
         </section>
     </article>
+    <section id="add_new_comment">
+      <h4>Add Comment<h4>
+      <%= render "shared/add_comment", :parent => nil %>
+    </section>
     <section id="slog_comments">
         <% if user_signed_in? %>
-        <div id="add_new_comment">
-            <h4>Add Comment<h4>
-              <%= render "shared/add_comment", :parent => nil %>
-        </div>
         <% end %>
         <% for comment in @slog.root_comments %>
         <%= render "shared/comment", :comment => comment, :parent => comment.id %>

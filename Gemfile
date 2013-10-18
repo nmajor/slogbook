@@ -20,6 +20,7 @@ gem 'friendly_id'
 gem 'profanity_filter'
 gem 'acts_as_votable'
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'will_paginate'
 
 gem 'therubyracer'
 gem 'jquery-rails'

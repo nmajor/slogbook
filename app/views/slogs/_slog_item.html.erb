@@ -1,18 +1,18 @@
 <section class="slog_preview active" id="slog_item_<%= slog.id %>">
     <div class="preview_content">
         <span class="slog_image">
-            <img src="http://lorempixel.com/320/200/people" title="<%= slog.tag_list.map { |t| t }.join(", ") %>" width="100%" height="auto" />
-            <%#= slog_thumb(slog) %>
+            <!-- <img src="http://lorempixel.com/320/200/people" title="<%= slog.tag_list.map { |t| t }.join(", ") %>" width="100%" height="auto" /> -->
+            <%= slog_thumb(slog) %>
         </span>
         <h3><%= link_to slog.title, slog_path(slog) %></h3>
-        <p class="preview_copy"><%= slog.slog_blocks[0].body %> <%= link_to "read more...", slog_path(slog), :class => "read_more" %></p>
+        <p class="preview_copy"><%= truncate( slog.slog_blocks[0].body, :length => 300, :separator => ' ', :omission => "... "+link_to("read more", slog_path(slog), :class => "read_more")).html_safe %></p>
         <section class="slog_preview_box">
             <% if slog.mission %>
             <h5 class="mission"><%= link_to slog.mission.name, "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
             <% end %>
             <%= link_to slog.user.username, user_show_path(slog.user) %> <%= time_ago_in_words(slog.created_at) %> ago
             <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog), :class => "slog_preview_comments" %>
-            <span class="slog_item_vote"><%= slog.likes.size %></span>
+            <span class="slog_item_vote"><%= slog.cached_votes_up %></span>
         </section>
         <ul class="tags">
             <% slog.tag_list.each do |tag| %>

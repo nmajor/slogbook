@@ -7,6 +7,8 @@ S::Application.routes.draw do
   resources :slogs do
     collection { get :autocomplete_tag_name }
     member { post :comment }
+    member { post :upvote }
+    member { post :flag }
   end
   get 'tags/:tag', to: 'slogs#index', as: :tag
   resources :missions

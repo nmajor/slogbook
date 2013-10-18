@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131006045921) do
+ActiveRecord::Schema.define(:version => 20131018004038) do
 
   create_table "calls", :force => true do |t|
     t.integer  "mission_id"
@@ -24,27 +24,11 @@ ActiveRecord::Schema.define(:version => 20131006045921) do
   add_index "calls", ["mission_id"], :name => "index_calls_on_mission_id"
   add_index "calls", ["user_id"], :name => "index_calls_on_user_id"
 
-  create_table "ckeditor_assets", :force => true do |t|
-    t.string   "data_file_name",                  :null => false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    :limit => 30
-    t.string   "type",              :limit => 30
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-  end
-
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
-
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
     t.string   "commentable_type", :default => ""
     t.string   "title",            :default => ""
-    t.text     "body"
+    t.text     "body",             :default => ""
     t.string   "subject",          :default => ""
     t.integer  "user_id",          :default => 0,  :null => false
     t.integer  "parent_id"
@@ -98,23 +82,24 @@ ActiveRecord::Schema.define(:version => 20131006045921) do
 
   add_index "slog_blocks", ["slog_id"], :name => "index_slog_blocks_on_slog_id"
 
-  create_table "slog_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "slogs", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "slog_type_id"
     t.integer  "mission_id"
-    t.string   "featured_image"
     t.string   "slug"
+    t.integer  "cached_votes_total", :default => 0
+    t.integer  "cached_votes_score", :default => 0
+    t.integer  "cached_votes_up",    :default => 0
+    t.integer  "cached_votes_down",  :default => 0
   end
 
+  add_index "slogs", ["cached_votes_down"], :name => "index_slogs_on_cached_votes_down"
+  add_index "slogs", ["cached_votes_score"], :name => "index_slogs_on_cached_votes_score"
+  add_index "slogs", ["cached_votes_total"], :name => "index_slogs_on_cached_votes_total"
+  add_index "slogs", ["cached_votes_up"], :name => "index_slogs_on_cached_votes_up"
   add_index "slogs", ["mission_id"], :name => "index_slogs_on_mission_id"
   add_index "slogs", ["slog_type_id"], :name => "index_slogs_on_slog_type_id"
   add_index "slogs", ["slug"], :name => "index_slogs_on_slug", :unique => true
@@ -138,28 +123,28 @@ ActiveRecord::Schema.define(:version => 20131006045921) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",       :null => false
-    t.string   "encrypted_password",                  :default => "",       :null => false
+    t.string   "email",                  :default => "",       :null => false
+    t.string   "encrypted_password",     :default => "",       :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",                     :default => 0
+    t.integer  "failed_attempts",        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at",                                                :null => false
-    t.datetime "updated_at",                                                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "username"
     t.string   "avatar"
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "gender",                 :limit => 1
+    t.string   "gender"
     t.date     "dob"
-    t.string   "role",                                :default => "author"
+    t.string   "role",                   :default => "author"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
