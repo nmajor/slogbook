@@ -1,6 +1,6 @@
 class RemoveFeaturedImageAndSlogType < ActiveRecord::Migration
   def up
-    remove_column :slogs, :slog_type
+    remove_column :slogs, :slog_type_id
     remove_column :slogs, :featured_image
     drop_table :slog_types
   end
