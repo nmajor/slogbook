@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require autocomplete-rails
+//= require rails.validations
 //= require_tree .
 //= require holder
 

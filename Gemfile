@@ -21,6 +21,7 @@ gem 'profanity_filter'
 gem 'acts_as_votable'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'will_paginate'
+gem 'client_side_validations'
 
 gem 'therubyracer'
 gem 'jquery-rails'

@@ -62,10 +62,9 @@ to improve your experience.</p>
 </ul>
     
 <section class="page">
-    <h1><%= link_to "", root_path, :class => "logo", :title => "Missionary Slog Book - Home" %></h1>
-    <button class="mini_nav">nav</button>
-
     <section class="container">
+        <h1><%= link_to "", root_path, :class => "logo", :title => "Missionary Slog Book - Home" %></h1>
+        <button class="mini_nav">nav</button>
         <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
             <a class="close" data-dismiss="alert">x</a>
