@@ -8,6 +8,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <% if @image %>
+          <meta property="og:image" content="<%= @image %>" />
+        <% end %>
         <style>
             body {
                 padding-bottom: 20px;
@@ -24,46 +27,12 @@
 <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> 
 to improve your experience.</p>
 <![endif]-->
-<ul class="nav">
-    <li class="nav_header">Missionary Slogbook</li>
-    <li><%= link_to "Blog" %></li>
-    <li><%= link_to "Slog" %></li>
-    <li><%= link_to "Shop" %></li>
-    <% if params[:controller] == "slogs" && params[:action] == "index" %>
-        <li class="slog_filters">
-            <span class="btn_show_filter">Filter search results</span>
-            <%= form_tag :method => 'get' do %>
-                <%= text_field_tag "tag_filter", nil, :placeholder => "Enter a mission or a #hashtag" %>
-                <%= select_tag "time_filter", options_for_select(@times) %>
-                <%= submit_tag "Filter", class: "", :id => "submit_filter" %>
-            <% end %>
-        <li>
-        </li>
-            <% if user_signed_in? %>
-                <%= link_to "New Slog Post", new_slog_path,:class => "new-slog-post" %>
-            <% end %>
-        </li>
-    <% end %>
-    <% if user_signed_in? %>
-        <li>
-            Signed in as <%= link_to current_user.username, user_show_path(current_user) %>. Not you?
-        </li>
-        <li>
-            Not you? <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-        </li>
-    <% else %>
-        <li>
-            <%= link_to "Sign in", new_user_session_path %>
-        </li>
-        <li class="new_user_link_container">
-            <%= link_to "Sign up for Slogbook here", new_user_registration_path, :class => "new_user_link" %>
-        </li>
-    <% end %>
-</ul>
-    
+<%= render "layouts/nav" %> 
 <section class="page">
+  <section class="banner">
+    <h1><%= link_to "", root_path, :class => "logo", :title => "Missionary Slog Book - Home" %></h1>
+  </section>
     <section class="container">
-        <h1><%= link_to "", root_path, :class => "logo", :title => "Missionary Slog Book - Home" %></h1>
         <button class="mini_nav">nav</button>
         <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

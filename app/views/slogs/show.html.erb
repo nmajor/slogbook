@@ -1,29 +1,28 @@
-<section class="row">
+<section class="page_body">
     <article id="slog_content">
+    <%= link_to "&larr; Back to Slogs".html_safe, slogs_path, :class => "link_back" %>
         <div id="slog_header">
-            <div id="slog_header_image">
-                <%= slog_image(@slog) %>
-            </div>
+          <ul class="tags">
+              <% @slog.tag_list.each do |tag| %>
+              <li><%= link_to tag, tag_path(tag), :title => "See more about #{tag}" %></li>
+              <% end %>
+          </ul>
+          <%= render "slog_vote", slog: @slog %>
+          <h3><%= @slog.title %></h3>
+          <section class="slog_preview_box">
+              by <%= link_to @slog.user.username, user_show_path(@slog.user) %>
+              <% if @slog.mission %>
+              in the
+              <h5 class="mission"><%= link_to @slog.mission.name + " Mission", "#mission", :title => "Read more posts from #{@slog.mission.name}" %></h5>
+              &middot;
+              <% end %>
+              <%= time_ago_in_words(@slog.created_at) %> ago &middot;
+              <%= link_to @slog.comment_threads.size.to_s + " comments", slog_path(@slog, :anchor => 'slog_comments'), :class => "slog_preview_comments" %>
+          </section>
+          <%= render 'shared/addthis', text: @slog.title %>
+          <div id="slog_flag_<%= @slog.id %>" class="slog_flag"><%= flag_slog(@slog) %></div>
         </div>
-        <div id="slog_header_body">
-            <div id="slog_header_head">
-                <div id="slog_vote">
-                    <div id="slog_upvote_<%= @slog.id %>" class="slog_upvote"><%= upvote_slog(@slog) %></div>
-                    <div id="slog_score_<%= @slog.id %>" class="slog_score"><%= @slog.upvotes.size %></div>
-                    <div id="slog_flag_<%= @slog.id %>" class="slog_flag"><%= flag_slog(@slog) %></div>
-                </div>
-            </div>
-            <div id="slog_title"><%= @slog.title %></div>
-            <div id="slog_tags">tags: <%= raw @slog.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></div>
-            <div id="slog_header_foot">
-                <div id="slog_auth_time">
-                    <span id="slog_author">by <%= link_to @slog.user.username, user_show_path(@slog.user) %></span>
-                    <span id="slog_time"><%= time_ago_in_words(@slog.created_at) %> ago</span>
-                </div>
-                <div id="slog_mission"><%= @slog.mission  ? @slog.mission.name : ''  %></div>
-            </div>
-        </section>
-        <section id="slog_content">
+        <section id="slog_body">
           <% @slog.slog_blocks.each do |sb| %>
             <%= render "slog_block", sb: sb %>
           <% end %>
@@ -42,21 +41,16 @@
             </div>
         </section>
     </article>
-    <section id="add_new_comment">
-      <h4>Add Comment<h4>
-      <%= render "shared/add_comment", :parent => nil %>
-    </section>
+    <% if user_signed_in? %>
+      <section id="add_new_comment">
+        <h4>Add Comment<h4>
+        <%= render "shared/add_comment", :parent => nil %>
+      </section>
+    <% end %>
     <section id="slog_comments">
-        <% if user_signed_in? %>
-        <% end %>
         <% for comment in @slog.root_comments %>
-        <%= render "shared/comment", :comment => comment, :parent => comment.id %>
+          <%= render "shared/comment", :comment => comment, :parent => comment.id %>
         <% end %>
     </section>
-    <span class="back_to_slogs">
-    <%= link_to "Back to Slogs", slogs_path %>
-    </span>
-    <div class="span4">
-       <%= render "shared/sidebar" %>
-    </div>
 </section>
+<%= render "shared/sidebar" %>

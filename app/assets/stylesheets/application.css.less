@@ -38,17 +38,20 @@ z-index:99;
 position:relative;
 display:block;
 width:100%;
--webkit-box-shadow:-1em -1em 1em rgba(0,0,0,.4);
-box-shadow:-1em -1em 1em rgba(0,0,0,.4);
 }
 .page.nav_active {
 position:absolute;
 right:-20em;
 }
+.banner.nav_active {
+left: 20em;
+}
 body .container {
+width: auto;
+max-width: none;
 padding-left:0;
 padding-right:0;
-z-index:99;
+margin-left: 23%;
 }
 .mission,
 .slog_item_vote,
@@ -128,9 +131,9 @@ padding:1em;
 margin:0;
 display:block;
 border-bottom: #ddd solid 1px;
--webkit-box-shadow:inset 0 0 2em rgba(0, 0, 0, 0.1);
 border-bottom: #ddd solid 1px;
-        box-shadow:inset 0 0 2em rgba(0, 0, 0, 0.1);
+/* -webkit-box-shadow:inset 0 0 2em rgba(0, 0, 0, 0.1);
+box-shadow:inset 0 0 2em rgba(0, 0, 0, 0.1); */
 -webkit-transition: all 0.3s ease-out;
 -moz-transition: all 0.3s ease-out;
 -o-transition: all 0.3s ease-out;
@@ -144,19 +147,19 @@ margin:0;
 color: @black;
 text-decoration: none;
 padding: .2em;
-padding-left: 1em;
+padding-left: 0em;
 line-height: 1.2em;
 cursor: pointer;
 display: block;
-font-size: .8em;
+font-size: 1em;
 font-weight: 700;
 }
 .slog_preview.active h3 a {
-margin-bottom:1em;
+margin-bottom:.2em;
 }
 .mission {
-margin:0 0 .5em 0em;
-display:block;
+margin:0 0 .3em 0em;
+display:inline;
 height:1.2em;
 }
 .mission a{
@@ -198,11 +201,11 @@ box-shadow:inset 0em 0em 3em rgba(0, 0, 0, 0.8);
 border:@lightgrey 1px solid;
 z-index: 1;
 position: relative;
-width: 5em;
-height: 5em;
 float: left;
 display: inline;
 margin: 0;
+width: 200px;
+height: 200px;
 }
 .holder img {
 max-width:100%;
@@ -215,17 +218,12 @@ white-space:nowrap;
 margin: 0;
 color:@blue;
 font-size: 0.9em;
+font-style:italic;
 position: relative;
 width: 100%;
 display: block;
-text-align: right;
-border-left:3em solid @blue;
-background: #efefef;
--webkit-border-radius: .25em;
-        border-radius: .25em;
 background-clip: padding-box;
-padding: 0.5em;
-height:0;
+padding: 0.3em;
 }
 .slog_preview_box a {
 color:@blue;
@@ -235,7 +233,6 @@ color:@blue;
 text-decoration:none;
 }
 .slog_preview_comments {
-display:block;
 }
 .usr_img_small {
 display:none;
@@ -256,22 +253,92 @@ height:0;
 .active .slog_preview_box,
 .active .slog_item_vote,
 .active .preview_copy,
-.active .tags {
-height:auto;
-}
 .active .preview_copy {
 margin-bottom:1em;
+font-size: 1em;
 }
 .preview_copy,
-.slog_preview .tags {
+.tags {
 clear:both;
+height:auto;
+margin-top: .2em;
 }
-.slog_preview .tags li {
+.tags li {
 display:inline;
 }
-.slog_preview .tags li a {
+.tags li a {
 color:#ccc;
 padding:.3em;
-font-size:.7em;
+font-size:.8em;
 margin:0 .1em .1em 0;
+}
+.col{
+float: right;
+}
+.banner{
+-webkit-transition: all 0.3s ease-out;
+-moz-transition: all 0.3s ease-out;
+-o-transition: all 0.3s ease-out;
+transition: all 0.3s ease-out;
+position: fixed;
+z-index: 100;
+top: 0;
+left: 0;
+width: 23%;
+height: 100%;
+background: url('http://blog.moregoodfoundation.org/files/2013/05/mormon-missionaries-men.jpg') no-repeat center top;
+}
+.slog_item_main{
+overflow: hidden;
+}
+.slog_item_main h3{
+  display: inline-block;
+  padding-left: .2em;
+}
+.preview_content{
+min-height: 202px;
+}
+.page_body{
+margin-right: 220px;
+float: left;
+margin-left: 10px;
+}
+.means{
+width: 200px;
+position: absolute;
+right: 0px;
+margin: 10px 10px 0 0;
+}
+.holder {
+border: 1px solid grey;
+margin-bottom: 10px;
+}
+.upvote{
+height: 1.6em;
+}
+.slog_upvote{
+display: inline-block;
+position: relative;
+top: -0.3em;
+}
+.slog_score{
+display: inline-block;
+font-size: 1.3em;
+}
+.slog_vote{
+font-weight: 500;
+display:inline;
+}
+.addthis_toolbox {
+margin-top: 1.5em;
+}
+.addthis_button_pinterest_pinit{
+  width: 46px;
+}
+.pagination {
+background: #FFFFFF;
+padding-left: 1em;
+}
+.slog_list{
+margin-top: 10px;
 }

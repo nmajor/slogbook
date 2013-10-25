@@ -29,6 +29,7 @@ class SlogsController < ApplicationController
   # GET /slogs/1.json
   def show
     @slog = Slog.find(params[:id])
+    @image = "http://" + request.host + @slog.slog_blocks[0].image.url
     if request.path == slog_path(@slog)
       respond_to do |format|
         format.html # show.html.erb

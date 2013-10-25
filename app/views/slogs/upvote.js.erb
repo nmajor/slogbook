@@ -1,2 +1,2 @@
-$('#slog_upvote_<%= @slog.id %>').html('up');
+$('#slog_upvote_<%= @slog.id %>').html('<%= link_to image_tag( asset_path('upblue.png'), alt: 'Upvote', class: 'upvote' ) %>');
 $('#slog_score_<%= @slog.id %>').html('<%= @slog.upvotes.count %>');

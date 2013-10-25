@@ -21,6 +21,7 @@
 $(function() {
     $('.mini_nav').on('click',function() {
         $('.page').toggleClass('nav_active');
+        $('.banner').toggleClass('nav_active');
     });
     $('.slog_preview a').on('click', function(e) {
         e.preventDefault;

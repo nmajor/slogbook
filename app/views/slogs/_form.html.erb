@@ -14,6 +14,7 @@
         <div class="form_text">
             <%= f.label :title %><%= f.text_field :title, :placeholder => "Title" %>
             <%= f.label :tag_list, "Tags"%><%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>
+            <%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %>
             <%= f.label :mission %><%= f.collection_select :mission_id, current_user.missions, :id, :name %>
         </div>
     </div>
