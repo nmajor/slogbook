@@ -1,10 +1,11 @@
 <% if ! parent %>
-  <div id="add_comment_<%= parent %>" class="add_root_comment">
+  <div class="add_root_comment">
 <% else %>
   <div id="add_comment_<%= parent %>" class="add_comment">
 <% end %>
+  <%= avatar_thumb(current_user) %>
   <%= form_tag({controller: "slogs", action: "comment", parent: parent }, method: "post", remote: true) do %>
-  <%= text_area_tag :comment_text, nil, class: 'comment_text' %><br />
-    <%= submit_tag("Save") %>
+    <%= text_area_tag :comment_text, nil, :placeholder => 'Comment...', class: 'comment_text' %><br />
+    <%= submit_tag("Save", class: "btn btn-mini btn-primary" ) %>
   <% end %>
 </div>

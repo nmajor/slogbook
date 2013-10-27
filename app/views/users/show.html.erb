@@ -1,14 +1,30 @@
-<%= image_tag @user.avatar_url.to_s %>
-<%= @user.username %>
-<%= @user.email %>
+<section class="page_body">
+  <div class="page_wrapper">
+    <%= link_to "&larr; Back".html_safe, :back, :class => "link_back" %>
+    <div class="page-header">
+        <h2><%= @user.username %></h2>
+    </div>
 
-
-<h2>Missions</h2>
-<% for missionship in @user.missionships %>
-  <div class="user_mission">
-    <div class="user_mission_name"><h3><%= missionship.mission_name %></h3></div>
-    <div class="user_mission_start">From: <%= missionship.start_date %></div>
-    <div class="user_mission_end">To: <%= missionship.end_date %></div>
+    <%= avatar( @user ) %>
+    
+    <% if @user.missionships %>
+      <div class="user_missions">
+        <h4>Missions</h4>
+        <% for missionship in @user.missionships %>
+          <div class="user_mission">
+            <div class="user_mission_name"><h3><%= missionship.mission_name %></h3></div>
+            <div class="user_mission_start">From: <%= missionship.start_date %></div>
+            <div class="user_mission_end">To: <%= missionship.end_date %></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% @user.slogs.each do |slog| %>
+      <%= render "slogs/slog_item", :slog => slog %>
+    <% end %>
   </div>
-<% end %>
 
+</section>
+<section class="means">
+  <%= render "shared/sidebar" %>
+</section>

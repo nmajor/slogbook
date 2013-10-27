@@ -1,12 +1,13 @@
-<div class="row">
-  <div class="span8">
+<section class="page_body">
+  <section class="page_content">
     <%- model_class = Slog -%>
+    <%= link_to "&larr; Back".html_safe, :back, :class => "link_back" %>
     <div class="page-header">
       <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %> Slog</h1>
     </div>
     <%= render :partial => 'form' %>
-  </div>
-  <div class="span4">
-    <%= render "shared/sidebar" %>
-  </div>
-</div>
+  </section>
+</section>
+<section class="means">
+  <%= render "shared/sidebar" %>
+</section>

@@ -86,8 +86,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25)
+    mini_portile (0.5.2)
     multi_json (1.8.1)
     mysql2 (0.3.13)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     profanity_filter (0.1.1)
@@ -121,6 +124,8 @@ GEM
     recaptcha (0.3.5)
     ref (1.0.5)
     rmagick (2.13.2)
+    sanitize (2.0.6)
+      nokogiri (>= 1.4.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -168,6 +173,7 @@ DEPENDENCIES
   rails3-jquery-autocomplete
   recaptcha
   rmagick
+  sanitize
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)

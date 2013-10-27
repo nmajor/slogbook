@@ -29,4 +29,7 @@ $(function() {
     $('.slog_preview:not(active)').on('click', function() {
         $(this).addClass('active');
     });
+    $('.close').on('click', function(){
+      $('.alert').hide();
+    });
 });

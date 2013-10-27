@@ -1,18 +1,18 @@
 <div class="comment" id="comment_<%= comment.id %>">
-  <div class="comment_sidebar">
-    <div class="comment_user_image">
-      <%= image_tag comment.user.avatar_url(:thumb).to_s %>
-    </div>
-  </div>
+  <%= avatar_thumb( comment.user ) %>
   <div class="comment_content">
-    <div class="headline">
-      <div class="comment_name"><%= link_to comment.user.username, user_show_path(comment.user) %></div>
-      <div class="comment_age"><%= time_ago_in_words(comment.created_at) %> ago</div>
-      <div class="comment_replies"><%= comment.children.size %> replies</div>
+    <div class="comment_meta">
+      <%= link_to comment.user.username, user_show_path(comment.user) %> &middot;
+      <%= time_ago_in_words(comment.created_at) %> ago &middot;
+      <%= comment.children.size %> replies
     </div>
-    <div class="comment_body"><%= comment.body %></div>
-    <div class="comment_reply">reply</div>
-    <%= render "shared/add_comment", :parent => comment.id %>
+    <div class="comment_body"><%= simple_format comment.body %></div>
+    <% if user_signed_in? %>
+      <div class="comment_reply">reply</div>
+      <%= render "shared/add_comment", :parent => comment.id %>
+    <% else%>
+      <%= link_to "reply", new_user_session_path, class: "comment_reply" %>
+    <% end %>
   </div>
   <div class="nested_comments" id="nested_comments_<%= comment.id %>">
     <% if( comment.has_children?) %>

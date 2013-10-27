@@ -15,4 +15,14 @@ class Slog < ActiveRecord::Base
   validates :title, length: { in: 10..110, message: "must be between 10 and 110 characters" } 
   validates_with ProfanityValidator, fields: [:title]
   validates_with SlogBlockValidator
+  before_save :make_safe
+
+  private
+    def make_safe
+      self.title = Sanitize.clean(self.title, Sanitize::Config::RELAXED)
+      self.slog_blocks.each do |sb|
+        sb.body = Sanitize.clean(sb.body, Sanitize::Config::RELAXED)
+      end
+    end
+
 end

@@ -1,48 +1,32 @@
-<div class="row">
-    <div class="span8">
-        <div class="edit_header">
+    <section class="page_body">
+      <div class="page_wrapper">
+        <%= link_to "&larr; Back".html_safe, :back, :class => "link_back" %>
+        <div class="page-header">
             <h2>Edit <%= resource.username %></h2>
         </div>
-        <div class="edit_user_wrapper">  
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-            <%= devise_error_messages! %>
-            <div class="edit_wrapper">
-                <div class="edit_image">
-                    <%= f.label :avatar %>
+                <div class="edit_image left_block">
+                    <h4>Avatar</h4>
                     <%= big_user_avatar(resource) %>
                     <div><%= f.file_field :avatar %></div>
-                    <p>- OR -</p>
-                    <div>Enter <%= f.text_field :remote_avatar_url, :placeholder => "Image URL" %></div>
                 </div>
                 <div class="edit_attr">
-                    <div>
-                        <div class="firstname"><%= f.label :firstname %><%= f.text_field :firstname, :placeholder => "First Name", :required => true %></div>
-                        <div class="lastname"><%= f.label :lastname %><%= f.text_field :lastname, :placeholder => "Lirst Name", :required => true %></div>
-                    </div>
-                    <div><%= f.label :email %><%= f.email_field :email %></div>
+                    <%= devise_error_messages! %>
                     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                     <% end %>
-                    <div><%= f.label :password, "Password (leave blank if you don't want to change it)" %>
-                    <%= f.password_field :password, :autocomplete => "off" %></div>
-                    <div><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></div>
-                    <div><%= f.label :current_password, "Current Password (required to change email or password)" %>
-                    <%= f.password_field :current_password %></div>
-                    <div class="user_label">Date of Birth</div>
-                    <%= f.date_select :dob, :order => [:month, :day, :year], :use_short_month => false,
-                      :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %>
-                    <div class="edit_gender">
-                        <%= f.radio_button :gender, "m", :checked => true %><div class="user_label room_right">Male</div>
+                    <%= f.email_field :email %>
+                    <%= f.password_field :current_password, :placeholder => "Current Password" %>
+                    <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password" %>
+                    <%= select_year resource.yob, :start_year => Time.now.year - 10, :end_year => Time.now.year - 95, :field_name => :yob, :prompt => "Year of Birth", :prefix => :user %>
+                    <div class="gender">
+                        <%= f.radio_button :gender, "m", :checked => true %><div class="user_label">Male</div>
                         <%= f.radio_button :gender, "f" %><div class="user_label">Female</div>
                     </div>
+                    <%= f.submit "Update", :class => 'btn btn-primary btn-block' %>
+                    <%= link_to "Back", :back %>
                 </div>
-                <div class="edit_form_footer">
-                    <div class="edit_actions"><%= f.submit "Update", :class => 'btn btn-primary' %></div>
-                    <div class="edit_back"><%= link_to "Back", :back %></div>
-                </div>
-            </div>
           <% end %>
-        </div>
         <div class="missions">
             <div id="mission_notify"></div>
             <div id="missionship_list">
@@ -61,8 +45,8 @@
                 <%= render "missions/mission_options" %>
             </div>
         </div>
-    </div>
-    <div class="span4">
+      </div>
+    </section>
+    <section class="means">
         <%= render "shared/sidebar" %>
-    </div>
-</div>
+    </section>

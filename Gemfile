@@ -10,6 +10,7 @@ gem 'sqlite3'
 
 gem 'devise'
 gem 'cancan'
+gem 'sanitize'
 
 gem 'carrierwave'
 gem 'rmagick'

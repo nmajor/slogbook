@@ -1,6 +1,7 @@
-<div class="row">
-  <div id="sign_in">
-    <h1>Sign in</h1>
+<section class="page_body_full">
+  <div class="sign_wrapper">
+    <h1><%= link_to "", root_path, class: 'logo' %></h1>
+    <h4>Sign in</h4>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div><%= f.text_field :login, :placeholder => "Username or Email" %></div>
       <div><%= f.password_field :password, :placeholder => "Password" %></div>
@@ -9,4 +10,4 @@
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
-</div>
+</section>

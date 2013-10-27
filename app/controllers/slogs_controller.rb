@@ -12,13 +12,6 @@ class SlogsController < ApplicationController
     else
       @slogs = Slog.order("cached_votes_up DESC").page(params[:page]).per_page(slogs_per_page)
     end
-    @times = { "All Time" => "all",
-              "Past Week" => "1week", 
-              "Past Month" => "1month", 
-              "Past 3 Months" => "3month",
-              "Past Year" => "1year",
-              "Past 2 Years" => "2year" } 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @slogs }

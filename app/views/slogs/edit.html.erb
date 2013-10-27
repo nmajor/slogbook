@@ -1,10 +1,13 @@
-<div class="page_body">
-  <%- model_class = Slog -%>
-  <div class="page-header">
-    <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %> Slog</h1>
-  </div>
-  <%= render :partial => 'form' %>
-</div>
-<div class="means">
+<section class="page_body">
+  <section class="page_content">
+    <%- model_class = Slog -%>
+    <%= link_to "&larr; Back".html_safe, :back, :class => "link_back" %>
+    <section class="page-header">
+      <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %> Slog</h1>
+    </section>
+    <%= render :partial => 'form' %>
+  </section>
+</section>
+<section class="means">
   <%= render "shared/sidebar" %>
-</div>
+</section>

@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username
   
+  validates_presence_of :username
+  validates_presence_of :yob, :message => '- Please enter your year of birth'
+  validates_uniqueness_of :username
   after_validation :validate_reserved
 
   def validate_reserved
@@ -25,7 +28,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable,
     :lockable 
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :login, :image, :role,
-                  :dob, :firstname, :lastname, :gender, :avatar, :avatar_cache, :remove_avatar, :remote_avatar_url
+                  :yob, :gender, :avatar, :avatar_cache, :remove_avatar, :remote_avatar_url
 
   attr_accessor :login
   mount_uploader :avatar, AvatarUploader

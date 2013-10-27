@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025021211) do
+ActiveRecord::Schema.define(:version => 20131027100141) do
 
   create_table "calls", :force => true do |t|
     t.integer  "mission_id"
@@ -145,11 +145,9 @@ ActiveRecord::Schema.define(:version => 20131025021211) do
     t.datetime "updated_at",                                                :null => false
     t.string   "username"
     t.string   "avatar"
-    t.string   "firstname"
-    t.string   "lastname"
     t.string   "gender",                 :limit => 1
-    t.date     "dob"
     t.string   "role",                                :default => "author"
+    t.integer  "yob"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -13,6 +13,11 @@ class RegistrationsController < Devise::RegistrationsController
     #  render :new
     # end
   # end
+
+  # def create
+  #   params[:yob] = params[:resourcea][:yob]
+  #   super
+  # end
   
   def update
     @user = User.find(current_user.id)

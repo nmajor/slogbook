@@ -1,6 +1,6 @@
 <section class="page_body">
     <article id="slog_content">
-    <%= link_to "&larr; Back to Slogs".html_safe, slogs_path, :class => "link_back" %>
+    <%= link_to "&larr; Back".html_safe, :back, :class => "link_back" %>
         <div id="slog_header">
           <ul class="tags">
               <% @slog.tag_list.each do |tag| %>
@@ -10,16 +10,17 @@
           <%= render "slog_vote", slog: @slog %>
           <h3><%= @slog.title %></h3>
           <section class="slog_preview_box">
+              <%= link_to @slog.slog_type.name, '#', :class => "slog_type" if @slog.slog_type %>
               by <%= link_to @slog.user.username, user_show_path(@slog.user) %>
               <% if @slog.mission %>
               in the
               <h5 class="mission"><%= link_to @slog.mission.name + " Mission", "#mission", :title => "Read more posts from #{@slog.mission.name}" %></h5>
-              &middot;
               <% end %>
+              &middot;
               <%= time_ago_in_words(@slog.created_at) %> ago &middot;
               <%= link_to @slog.comment_threads.size.to_s + " comments", slog_path(@slog, :anchor => 'slog_comments'), :class => "slog_preview_comments" %>
           </section>
-          <%= render 'shared/addthis', text: @slog.title %>
+          <%= render 'shared/addthis_share', text: @slog.title %>
           <div id="slog_flag_<%= @slog.id %>" class="slog_flag"><%= flag_slog(@slog) %></div>
         </div>
         <section id="slog_body">
@@ -29,7 +30,7 @@
             <div id="slog_actions">
                 <% if can? :update, @slog %>
                 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_slog_path(@slog), :class => 'btn edit_slog' %>
+                edit_slog_path(@slog), :class => 'btn btn-primary edit_slog' %>
                 <% end %>
                 <% if can? :destroy, @slog %>
                 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -43,14 +44,15 @@
     </article>
     <% if user_signed_in? %>
       <section id="add_new_comment">
-        <h4>Add Comment<h4>
         <%= render "shared/add_comment", :parent => nil %>
+        <hr>
       </section>
     <% end %>
     <section id="slog_comments">
-        <% for comment in @slog.root_comments %>
-          <%= render "shared/comment", :comment => comment, :parent => comment.id %>
-        <% end %>
+    <h4><%= @slog.comment_threads.size.to_s %> Comments</h4>
+      <% for comment in @slog.root_comments %>
+        <%= render "shared/comment", :comment => comment, :parent => comment.id %>
+      <% end %>
     </section>
 </section>
 <%= render "shared/sidebar" %>

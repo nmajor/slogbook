@@ -12,17 +12,22 @@
           </div>
         <% end %>
         <div class="form_text">
-            <%= f.label :title %><%= f.text_field :title, :placeholder => "Title" %>
-            <%= f.label :tag_list, "Tags"%><%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>
-            <%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %>
-            <%= f.label :mission %><%= f.collection_select :mission_id, current_user.missions, :id, :name %>
+            <div class="slog_form_title"><%= f.text_field :title, :placeholder => "Title", :maxlength => 110 %></div>
+            <div class="slog_form_type"><%= f.label :slog_type %><%= f.collection_select :slog_type_id, SlogType.all, :id, :name %></div>
+            <div class="slog_form_mission">
+              <%= f.label :mission, "This slog is relevent to" %>
+              <%= f.collection_select :mission_id, current_user.missions, :id, :name, :include_blank => "Any Mission" %>
+            </div>
         </div>
     </div>
     <div class="form_blocks">
       <%= f.fields_for :slog_blocks do |builder| %>
         <%= render 'slog_block_form', f: builder %>
       <% end %>        
-      <%= link_to_add_block "Add Block", f %>
+      <%= link_to_add_block "+ Add Block", f %>
+    </div>
+    <div class="slog_form_tags">
+      <%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>
     </div>
     <div class="form_actions"><%= f.submit nil, :class => 'btn btn-primary' %></div>
 <% end %>

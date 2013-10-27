@@ -4,16 +4,17 @@
             <%= slog_thumb(slog) %>
         </div>
         <div class="slog_item_main">
-          <%= render 'slog_vote', slog: slog %>
+          <%= render 'slogs/slog_vote', slog: slog %>
           <h3><%= link_to slog.title, slog_path(slog) %></h3>
           <p class="preview_copy"><%= truncate( slog.slog_blocks[0].body, :length => 430, :separator => ' ', :omission => "... "+link_to("read more", slog_path(slog), :class => "read_more")).html_safe %></p>
           <section class="slog_preview_box">
+              <%= link_to slog.slog_type.name, '#', :class => "slog_type" if slog.slog_type %>
               by <%= link_to slog.user.username, user_show_path(slog.user) %> 
               <% if slog.mission %>
               in the
               <h5 class="mission"><%= link_to slog.mission.name + " Mission", "#mission", :title => "Read more posts from #{slog.mission.name}" %></h5>
-              &middot;
               <% end %>
+              &middot;
               <%= time_ago_in_words(slog.created_at) %> ago &middot;
               <%= link_to slog.comment_threads.size.to_s + " comments", slog_path(slog, :anchor => 'slog_comments'), :class => "slog_preview_comments" %>
               <span class="slog_item_vote"><%= slog.cached_votes_up %></span>
