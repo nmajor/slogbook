@@ -2,20 +2,18 @@
   <div>
     <%= render 'shared/addthis_follow' %>
   </div>
-  <div>
+  <div class="footer_mid">
+    <p>Missionary Slog Book is a place where missionaries can pass on their knowlege and experience to members of the church and the next generation of missionaries.</p>
+    <br>
+    &copy;2013 Missionary Slog Book
+  </div>
+  <div class="footer_right">
     <h4>Links</h4>
     <ul>
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About" %></li>
-      <li><%= link_to "Contact" %></li>
-      <li><%= link_to "Terms" %></li>
+      <li><%= link_to "About", about_pages_path %></li>
+      <li><%= link_to "Contact", contact_pages_path %></li>
+      <li><%= link_to "Terms", terms_pages_path %></li>
     </ul>
   </div>
-    <div>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About" %></li>
-    </ul>
-  </div>
-  <div></div>
 </footer>

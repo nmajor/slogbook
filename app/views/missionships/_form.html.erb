@@ -4,9 +4,9 @@
   <% else %>
     <div class="missionship_mission_name"><%= @missionship.mission_name %></div>
   <% end %>
-  <div class="missionship_form"><%= m.label :start_date %><%= m.date_select :start_date, :order => [:month, :day, :year], :use_short_month => false,
+  <div class="missionship_form"><%= m.label :start_date, "Start" %><%= m.date_select :start_date, :order => [:month, :year], :use_short_month => false,
     :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %></div>
-  <div class="missionship_form"><%= m.label :end_date %><%= m.date_select :end_date, :order => [:month, :day, :year], :use_short_month => false,
+  <div class="missionship_form"><%= m.label :end_date, "End" %><%= m.date_select :end_date, :order => [:month, :year], :use_short_month => false,
     :start_year => (Time.now.year), :end_year => (Time.now.year - 70) %></div>
-  <div class="missionship_form"><%= m.submit (params[:action] == "new" ? "Add" : "Update" ), :class => "btn btn-primary submit_missionship" %></div>
+  <div class="missionship_form"><%= m.submit (params[:action] == "new" ? "Add" : "Update" ), :class => "btn btn-primary submit_missionship btn-small" %></div>
 <% end %>

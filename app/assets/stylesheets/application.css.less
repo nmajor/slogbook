@@ -26,7 +26,7 @@ padding:0;
 background:#333 !important;
 color:#000;
 width:100%;
-
+color: @black;
 }
 .page {
 background:#efefef;
@@ -103,7 +103,7 @@ color:dddd !important;
 color: #666;
 text-transform: uppercase;
 text-align: center;
-border-bottom: 5px solid #222;
+border-bottom: 5px solid @black;
 padding: 1.4em 1em 1.4em 3em !important;
 opacity:.4;
 z-index:101;
@@ -369,7 +369,7 @@ height: 3.4em;
 width: 30em;
 }
 .page-header h1{
-color: #000000;
+color: @black;
 padding: .2em;
 padding-left: 0em;
 margin-top: 0em;
@@ -428,9 +428,19 @@ border: 1px solid @alert_error_dark;
   color: @alert_success_dark;
   &:hover{ text-decoration: none; color: darken(@alert_success_dark, 10%); }
 }
+.alert_error a {
+  padding: 0 10px;
+  font-size: 1em;
+  color: @alert_error_dark;
+  &:hover{ text-decoration: none; color: darken(@alert_error_dark, 10%); }
+}
+#mission_notify .alert{
+margin: 10px 0 10px 0 !important;
+}
 footer{ 
 background: @darkgrey; 
 height: 14.5em;
+text-align: center;
 clear: both;
 border-top: 1px solid #949494;
 padding: 2em;
@@ -443,7 +453,6 @@ color: #999;
 footer div{
 display: inline-block;
 width: 33%;
-float: left;
 .addthis_toolbox { margin-top: 0; }
 h4{ margin-top: 0; }
 }
@@ -523,11 +532,10 @@ color: #7A7A7A;
 background: #fff;
 padding: 2em;
 margin-top: 10px;
-margin-right: 10px;
 }
 .missions{
 clear: both;
-margin-top: 4em;
+margin-top: 5em;
 }
 .page-header{ margin: 20px 0 20px !important; }
 .edit_attr{
@@ -553,3 +561,69 @@ float: left;
 margin-right: 1.5em;
 margin-bottom: 2em;
 }
+@media all and (max-width: 800px) {
+.means{ display: none; }
+.page_body{ margin: 0 0 10px 10px; }
+.container{ margin-left: 0 !important; }
+.banner{ 
+  position: relative; 
+  width: 100%;
+  height: 300px;
+  background: url('http://www.religionfacts.com/mormonism/images/missionary-nottingham-cc-hoveringdog.jpg') no-repeat center center;
+  background-size: 100% auto;
+  }
+.banner.nav_active{ position: relative !important; left: 0;}
+body{ position: relative; top: -10px; }
+}
+@media all and (max-width: 1050px) {
+.slog_image{ display: none !important; }
+}
+.user_slog_header{ clear: both; }
+.missionship_form {
+display: inline-block;
+}
+.btn-small {
+padding: 2px 10px !important;
+font-size: 11.9px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+.missionship_item div{
+display: inline-block;
+}
+.missions select{
+height: 25px;
+}
+.submit_missionship{
+  position: relative;
+  top: -2px;
+}
+.footer_mid {
+position: relative;
+top: -3em;
+}
+.footer_right {
+position: relative;
+top: -2.1em;
+}
+.login_to_comment{
+  color: #AAAAAA;
+  font-size: 14px;
+}
+.slog_mission_extra {
+color: #AAAAAA;
+font-size: 11px;
+}
+#call_list div{
+  display: inline;
+  label{ margin-right: .4em; }
+}
+#top_banner{
+  margin: 10px 10px 0 10px;
+  padding: 1em;
+  background: #fff;
+  text-align: center;
+}
+#user_login{ margin-bottom: .6em; }
+.single_text{ margin-bottom: .6em !important; }

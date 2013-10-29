@@ -17,6 +17,7 @@
             <div class="slog_form_mission">
               <%= f.label :mission, "This slog is relevent to" %>
               <%= f.collection_select :mission_id, current_user.missions, :id, :name, :include_blank => "Any Mission" %>
+              <div class="slog_mission_extra">To post about a specific mission, add it to your <%= link_to "profile", edit_user_registration_path %></div>
             </div>
         </div>
     </div>

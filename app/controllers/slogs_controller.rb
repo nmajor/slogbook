@@ -6,12 +6,27 @@ class SlogsController < ApplicationController
   # GET /slogs
   # GET /slogs.json
   def index
-    slogs_per_page = 5
-    if params[:tag]
-      @slogs = Slog.order("cached_votes_up DESC").tagged_with(params[:tag]).page(params[:page]).per_page(slogs_per_page)
+    slogs_per_page = 10
+
+    @slog_types = SlogType.all
+    @sorts = [['Most Votes','high_vote'],['Newest','newest']]
+
+    @slogs = Slog.scoped
+    @slogs = @slogs.where( :mission_id => Mission.find_by_name(params[:mission]) ) \
+      if params[:mission] && params[:mission] != ''
+    @slogs = @slogs.where( :slog_type_id => SlogType.find(params[:slog_type]) ) \
+      if params[:slog_type] && params[:slog_type] != ''
+    @slogs = @slogs.tagged_with(params[:tag]).page(params[:page]).per_page(slogs_per_page) \
+      if params[:tag]
+    
+    if params[:sort] && params[:sort] == 'newest'
+      @slogs = @slogs.order("created_at DESC")
     else
-      @slogs = Slog.order("cached_votes_up DESC").page(params[:page]).per_page(slogs_per_page)
+      @slogs = @slogs.order("cached_votes_up DESC")
     end
+      
+    @slogs = @slogs.page(params[:page]).per_page(slogs_per_page) 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @slogs }

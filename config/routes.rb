@@ -13,6 +13,14 @@ S::Application.routes.draw do
   get 'tags/:tag', to: 'slogs#index', as: :tag
   resources :missions
 
+  resources :pages do 
+    collection do
+      get :terms
+      get :about
+      get :contact
+    end
+  end
+
   get "users/:id", :as => :user_show, to: "users#show"
 
   resources :missionships do

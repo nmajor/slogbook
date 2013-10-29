@@ -4,3 +4,6 @@
 <% end %>
 $('#mission_options').html('<%= j render "missions/mission_options" %>');
 $('#mission_notify').html('<%= j render "missionships/notice", :success => @success, :notification => @notification %>');
+$('.close').on('click', function(){
+  $('.alert').hide();
+});

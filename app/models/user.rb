@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
-    :lockable 
+    :lockable, :confirmable
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :login, :image, :role,
                   :yob, :gender, :avatar, :avatar_cache, :remove_avatar, :remote_avatar_url
 

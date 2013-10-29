@@ -4,27 +4,22 @@
     <div class="page-header">
         <h2><%= @user.username %></h2>
     </div>
-
-    <%= avatar( @user ) %>
-    
-    <% if @user.missionships %>
-      <div class="user_missions">
-        <h4>Missions</h4>
-        <% for missionship in @user.missionships %>
-          <div class="user_mission">
-            <div class="user_mission_name"><h3><%= missionship.mission_name %></h3></div>
-            <div class="user_mission_start">From: <%= missionship.start_date %></div>
-            <div class="user_mission_end">To: <%= missionship.end_date %></div>
-          </div>
-        <% end %>
-      </div>
+    <% if @user == current_user %>
+      <div class="user_slog_header"><%= link_to "Edit Profile", edit_user_registration_path %></div>
     <% end %>
+    <%= avatar( @user ) %>
+    <section class="user_mission">
+      <% @user.missionships.each do |m| %>
+        <div>
+          Served in the <%= m.mission_name + " Mision" %> from 
+          <%= m.start_date.strftime('%b %d') %> to <%= m.end_date.strftime('%b %d') %>
+        </div>
+      <% end %>
+    </section>
+    <h4 class="user_slog_header">Slogs by <%= @user.username %></h4>
     <% @user.slogs.each do |slog| %>
       <%= render "slogs/slog_item", :slog => slog %>
     <% end %>
   </div>
-
 </section>
-<section class="means">
-  <%= render "shared/sidebar" %>
-</section>
+<%= render "shared/sidebar" %>

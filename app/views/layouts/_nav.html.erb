@@ -1,8 +1,8 @@
 <ul class="nav">
     <li class="nav_header">Missionary Slogbook</li>
     <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About" %></li>
-    <li><%= link_to "Contact" %></li>
+    <li><%= link_to "About", about_pages_path %></li>
+    <li><%= link_to "Contact", contact_pages_path %></li>
     <% if user_signed_in? %>
       <li>
         <%= link_to "New Slog", new_slog_path,:class => "new-slog-post" %>

@@ -49,7 +49,10 @@
       </section>
     <% end %>
     <section id="slog_comments">
-    <h4><%= @slog.comment_threads.size.to_s %> Comments</h4>
+    <h4><%= @slog.comment_threads.size.to_s %> Comments 
+      <% if !user_signed_in? %>
+        <span class="login_to_comment"> - <%= link_to "Sign in", new_user_session_path %> to participate in the discussion</span></h4>
+      <% end %>
       <% for comment in @slog.root_comments %>
         <%= render "shared/comment", :comment => comment, :parent => comment.id %>
       <% end %>

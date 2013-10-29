@@ -1,12 +1,16 @@
-<h2>Forgot your password?</h2>
+<section class="page_body_full">
+  <div class="sign_wrapper">
+    <h1><%= link_to "", root_path, class: 'logo' %></h1>
+    <h4>Forgot your password?</h4>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :login %><br />
-  <%= f.text_field :login, :autofocus => true %></div>
+      <%= f.text_field :login, :autofocus => true, :placeholder => 'Email' %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+      <div><%= f.submit "Send me reset password instructions", :class => "btn btn-success btn-large btn-block" %></div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </div>
+</section>

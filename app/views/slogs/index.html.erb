@@ -1,3 +1,16 @@
+<% if ! user_signed_in? && params[:page] %>
+  <section id="top_banner">
+    <h4>Welcome to Missionary Slog Book</h4>
+    <p>
+    Thousands of LDS missionaries come home from their missions every year. 
+    They return filled with missionary expertise and wonderful stories. 
+    Rarely is much of their experience or experiences passed on to more than a handful of people.
+    We want to fix that.
+    This isnt just for returned missionaries, anyone is welcome to create an account and post a "slog" about 
+    missionary experience.
+    </p>
+  </section>
+<% end %>
 <section class="home">
   <section class="page_body">
     <%= render 'filter' %>
