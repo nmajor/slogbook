@@ -27,7 +27,7 @@ module SlogsHelper
 
   def upvote_slog( slog )
     if current_user && current_user.voted_as_when_voted_for(slog) == true
-      return link_to image_tag( asset_path('upblue.png'), alt: 'Upvote', class: 'upvote' )
+      return image_tag( asset_path('upblue.png'), alt: 'Upvote', class: 'upvote' )
     else 
       return link_to image_tag( asset_path('upgrey.png'), alt: 'Upvote', class: 'upvote' ), upvote_slog_path(slog), method: "post", remote: true
     end

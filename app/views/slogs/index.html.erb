@@ -1,4 +1,4 @@
-<% if ! user_signed_in? && params[:page] %>
+<% if ! user_signed_in? && ! params[:page] %>
   <section id="top_banner">
     <h4>Welcome to Missionary Slog Book</h4>
     <p>
