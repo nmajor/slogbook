@@ -5,8 +5,6 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'sqlite3'
 
 gem 'devise'
 gem 'cancan'
@@ -32,6 +30,12 @@ gem 'rails3-jquery-autocomplete'
 group :development do
   gem 'sqlite3'
   gem 'holder_rails'
+  gem 'mysql2'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Gems used only for assets and not required

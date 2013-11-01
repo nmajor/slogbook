@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 
+
 load "config/recipes/base"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
@@ -10,7 +11,7 @@ load "config/recipes/check"
 
 server "missionaryslogbook.com", :web, :app, :db, primary: true
 
-set :application, "slogboook"
+set :application, "slogbook"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
