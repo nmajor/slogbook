@@ -16,7 +16,6 @@
 //= require autocomplete-rails
 //= require rails.validations
 //= require_tree .
-//= require holder
 
 $(function() {
     $('.mini_nav').on('click',function() {

@@ -3,16 +3,12 @@ module SlogsHelper
   def slog_thumb( slog )
     if slog.slog_blocks[0].image_url(:thumb)
       return image_tag slog.slog_blocks[0].image_url(:thumb).to_s, title: slog.tag_list.map { |t| t }.join(", "), width: '%100', height: 'auto'
-    else
-      return holder_tag "100x100", "No Featured Image"
     end
   end
   
   def slog_image( slog )
     if slog.slog_blocks[0].image_url
       return image_tag slog.slog_blocks[0].image_url.to_s
-    else
-      return holder_tag "260x260", "No Featured Image"
     end
   end
   
