@@ -1,4 +1,4 @@
-<%= form_for @slog, :html => { :multipart => true }, validate: true do |f| %>
+<%= form_for @slog, :html => { :multipart => true } do |f| %>
     <div class="slog_attr">
         <% if @slog.errors.any? %>
           <div id="error_explanation">
