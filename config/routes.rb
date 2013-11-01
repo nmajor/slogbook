@@ -2,6 +2,7 @@ S::Application.routes.draw do
   get "styles", :as => :styles_show, to: "styles#index"
 
   devise_for :users, :controllers => { :registrations => "registrations" }
+  get "/users", to: redirect("/slogs")
 
   root :to => "slogs#index"
   resources :slogs do

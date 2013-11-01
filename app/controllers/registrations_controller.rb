@@ -19,10 +19,6 @@ class RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def after_sign_up_path_for(resource)
-    root_path
-  end
-  
   def update
     @user = User.find(current_user.id)
 
