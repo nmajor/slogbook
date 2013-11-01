@@ -18,6 +18,10 @@ class RegistrationsController < Devise::RegistrationsController
   #   params[:yob] = params[:resourcea][:yob]
   #   super
   # end
+
+  def after_sign_up_path_for(resource)
+    root_path
+  end
   
   def update
     @user = User.find(current_user.id)
