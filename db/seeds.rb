@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+['Tip','Advise','Mission Description','Story'].each do |st|
+  SlogType.find_or_create_by_name(st)
+end
+
+open("#{Rails.root}/db/seeds/missions.csv") do |missions|
+  missions.read.each_line do |mission|
+    name, region, active = mission.chomp.split(',')
+    Mission.create!(:name => name, :region => region, :active => active)
+  end
+end

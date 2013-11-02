@@ -1,0 +1,405 @@
+Angola Luanda ,Africa,1
+Benin Cotonou,Africa,1
+Botswana/Namibia,Africa,1
+Cape Verde Praia,Africa,1
+Democratic Republic of Congo Kinshasa,Africa,1
+Democratic Republic of Congo Lubumbashi ,Africa,1
+Ghana Accra ,Africa,1
+Ghana Accra West,Africa,1
+Ghana Cape Coast ,Africa,1
+Ghana Kumasi ,Africa,1
+Ivory Coast Abidjan,Africa,1
+Kenya Nairobi,Africa,1
+Liberia Monrovia,Africa,1
+Madagascar Antananarivo ,Africa,1
+Mozambique Maputo,Africa,1
+Nigeria Benin City,Africa,1
+Nigeria Calabar,Africa,1
+Nigeria Enugu,Africa,1
+Nigeria Lagos,Africa,1
+Nigeria Port Harcourt ,Africa,1
+Sierra Leone Freetown,Africa,1
+South Africa Cape Town ,Africa,1
+South Africa Durban,Africa,1
+South Africa Johannesburg ,Africa,1
+Uganda Kampala ,Africa,1
+Zambia Lusaka,Africa,1
+Zimbabwe Harare,Africa,1
+Cambodia Phnom Penh,Asia,1
+China Hong Kong,Asia,1
+India Bangalore,Asia,1
+India New Delhi,Asia,1
+Indonesia Jakarta ,Asia,1
+Japan Fukuoka,Asia,1
+Japan Kobe,Asia,1
+Japan Nagoya,Asia,1
+Japan Sapporo,Asia,1
+Japan Sendai,Asia,1
+Japan Tokyo,Asia,1
+Japan Tokyo,Asia,1
+Korea Busan,Asia,1
+Korea Daejon,Asia,1
+Korea Seoul ,Asia,1
+Korea Seoul,Asia,1
+Mongolia Ulaanbaatar,Asia,1
+Philippines Angeles,Asia,1
+Philippines Bacolod,Asia,1
+Philippines Baguio,Asia,1
+Philippines Butuan,Asia,1
+Philippines Cagayan De Oro ,Asia,1
+Philippines Cauayan,Asia,1
+Philippines Cavite,Asia,1
+Philippines Cebu ,Asia,1
+Philippines Cebu,Asia,1
+Philippines Davao,Asia,1
+Philippines Iloilo ,Asia,1
+Philippines Laoag,Asia,1
+Philippines Legaspi,Asia,1
+Philippines Manila,Asia,1
+Philippines Naga,Asia,1
+Philippines Olongapo ,Asia,1
+Philippines Quezon City ,Asia,1
+Philippines Quezon City North ,Asia,1
+Philippines San Pablo,Asia,1
+Philippines Tacloban ,Asia,1
+Philippines Urdaneta ,Asia,1
+Singapore,Asia,1
+Taiwan Taichung ,Asia,1
+Taiwan Taipei ,Asia,1
+Thailand Bangkok ,Asia,1
+Canada Calgary,Canada,1
+Canada Edmonton,Canada,1
+Canada Halifax,Canada,1
+Canada Montreal,Canada,1
+Canada Toronto ,Canada,1
+Canada Vancouver,Canada,1
+Canada Winnipeg,Canada,1
+Costa Rica San José,Central America and the Caribbean,1
+Dominican Republic Santiago,Central America and the Caribbean,1
+Dominican Republic Santo Domingo East,Central America and the Caribbean,1
+Dominican Republic Santo Domingo,Central America and the Caribbean,1
+El Salvador San Salvador,Central America and the Caribbean,1
+El Salvador San Salvador East ,Central America and the Caribbean,1
+El Salvador Santa Ana/Belize,Central America and the Caribbean,1
+Guatemala Coban,Central America and the Caribbean,1
+Guatemala Guatemala City Central,Central America and the Caribbean,1
+Guatemala Guatemala City North ,Central America and the Caribbean,1
+Guatemala Guatemala City South,Central America and the Caribbean,1
+Guatemala Quetzaltenango ,Central America and the Caribbean,1
+Guatemala Retalhuleu ,Central America and the Caribbean,1
+Haiti Port-au-Prince,Central America and the Caribbean,1
+Honduras Comayaguela ,Central America and the Caribbean,1
+Honduras San Pedro Sula ,Central America and the Caribbean,1
+Honduras San Pedro Sula West,Central America and the Caribbean,1
+Honduras Tegucigalpa,Central America and the Caribbean,1
+Jamaica Kingston ,Central America and the Caribbean,1
+Nicaragua Managua,Central America and the Caribbean,1
+Nicaragua Managua South ,Central America and the Caribbean,1
+Panama Panama City,Central America and the Caribbean,1
+Puerto Rico San Juan ,Central America and the Caribbean,1
+West Indies (Valsayan) ,Central America and the Caribbean,1
+Adriatic North ,Europe and Russia,1
+Adriatic South,Europe and Russia,1
+Alpine German-Speaking (Munich),Europe and Russia,1
+Armenia Yerevan ,Europe and Russia,1
+Baltic (Riga),Europe and Russia,1
+Belgium/Netherlands (Brussels),Europe and Russia,1
+Bulgaria Sofia,Europe and Russia,1
+Czech/Slovak (Prague) ,Europe and Russia,1
+Denmark Copenhagen,Europe and Russia,1
+England Birmingham ,Europe and Russia,1
+England Leeds ,Europe and Russia,1
+England London,Europe and Russia,1
+England London South,Europe and Russia,1
+England Manchester,Europe and Russia,1
+Finland Helsinki ,Europe and Russia,1
+France Lyon,Europe and Russia,1
+France Paris,Europe and Russia,1
+Germany Berlin ,Europe and Russia,1
+Germany Frankfurt,Europe and Russia,1
+Greece Athens ,Europe and Russia,1
+Hungary Budapest,Europe and Russia,1
+Italy Milan,Europe and Russia,1
+Italy Rome ,Europe and Russia,1
+Norway Oslo,Europe and Russia,1
+Poland Warsaw,Europe and Russia,1
+Portugal Lisbon,Europe and Russia,1
+Romania/Moldova (Bucharest),Europe and Russia,1
+Russia Moscow ,Europe and Russia,1
+Russia Novosibirsk ,Europe and Russia,1
+Russia Rostov-on-Don,Europe and Russia,1
+Russia Saint Petersburg ,Europe and Russia,1
+Russia Samara ,Europe and Russia,1
+Russia Vladivostok ,Europe and Russia,1
+Russia Yekaterinburg,Europe and Russia,1
+Scotland/Ireland (Edinburgh) ,Europe and Russia,1
+Spain Barcelona,Europe and Russia,1
+Spain Madrid ,Europe and Russia,1
+Spain Málaga ,Europe and Russia,1
+Sweden Stockholm ,Europe and Russia,1
+Ukraine Dnepropetrovsk ,Europe and Russia,1
+Ukraine Donetsk,Europe and Russia,1
+Ukraine Kiev,Europe and Russia,1
+Ukraine L'viv ,Europe and Russia,1
+Mexico Cancun,Mexico,1
+Mexico Chihuahua ,Mexico,1
+Mexico Ciudad Juarez,Mexico,1
+Mexico Ciudad Obregon,Mexico,1
+Mexico Cuernavaca,Mexico,1
+Mexico Culiacán,Mexico,1
+Mexico Guadalajara ,Mexico,1
+Mexico Guadalajara East ,Mexico,1
+Mexico Hermosillo,Mexico,1
+Mexico Leon,Mexico,1
+Mexico Mérida,Mexico,1
+Mexico México City Chalco,Mexico,1
+Mexico Mexico City North ,Mexico,1
+Mexico Mexico City East ,Mexico,1
+Mexico Mexico City Northwest ,Mexico,1
+Mexico Mexico City South ,Mexico,1
+Mexico Mexico City Southeast ,Mexico,1
+Mexico Mexico City West ,Mexico,1
+Mexico Monterrey West ,Mexico,1
+Mexico Monterrey East,Mexico,1
+Mexico Oaxaca,Mexico,1
+Mexico Pachuca,Mexico,1
+Mexico Puebla North,Mexico,1
+Mexico Puebla South,Mexico,1
+Mexico Queretaro ,Mexico,1
+Mexico Reynosa ,Mexico,1
+Mexico Saltillo,Mexico,1
+Mexico Tampico,Mexico,1
+Mexico Tijuana,Mexico,1
+Mexico Torreón,Mexico,1
+Mexico Tuxtla Gutierrez ,Mexico,1
+Mexico Veracruz,Mexico,1
+Mexico Villahermosa,Mexico,1
+Mexico Xalapa,Mexico,1
+Australia Adelaide,Oceania,1
+Australia Brisbane ,Oceania,1
+Australia Melbourne,Oceania,1
+Australia Perth,Oceania,1
+Australia Sydney,Oceania,1
+Australia Sydney North,Oceania,1
+Fiji Suva ,Oceania,1
+Marshall Islands Majuro ,Oceania,1
+Micronesia Guam ,Oceania,1
+New Zealand Auckland ,Oceania,1
+New Zealand Wellington ,Oceania,1
+New Zealand Hamilton ,Oceania,1
+Papua New Guinea Port Moresby ,Oceania,1
+Papua New Guinea Lae ,Oceania,1
+Samoa Apia,Oceania,1
+Tahiti Papeete,Oceania,1
+Tonga Nukuʻalofa ,Oceania,1
+Vanuatu Port Vila ,Oceania,1
+Argentina Bahía Blanca,South America,1
+Argentina Buenos Aires North,South America,1
+Argentina Buenos Aires South ,South America,1
+Argentina Buenos Aires West ,South America,1
+Argentina Comodoro Rivadavia ,South America,1
+Argentina Córdoba,South America,1
+Argentina Mendoza ,South America,1
+Argentina Neuquén ,South America,1
+Argentina Posadas ,South America,1
+Argentina Resistencia ,South America,1
+Argentina Rosario ,South America,1
+Argentina Salta,South America,1
+Bolivia Cochabamba,South America,1
+Bolivia La Paz,South America,1
+Bolivia Santa Cruz ,South America,1
+Bolivia Santa Cruz North,South America,1
+Brazil Belém,South America,1
+Brazil Belo Horizonte ,South America,1
+Brazil Brasília ,South America,1
+Brazil Campinas ,South America,1
+Brazil Cuiabá,South America,1
+Brazil Curitiba ,South America,1
+Brazil Curitiba South,South America,1
+Brazil Florianópolis ,South America,1
+Brazil Fortaleza ,South America,1
+Brazil Fortaleza East,South America,1
+Brazil Goiânia ,South America,1
+Brazil João Pessoa,South America,1
+Brazil Juiz de Fora ,South America,1
+Brazil Londrina ,South America,1
+Brazil Maceió ,South America,1
+Brazil Manaus ,South America,1
+Brazil Natal ,South America,1
+Brazil Piracicaba ,South America,1
+Brazil Porto Alegre North ,South America,1
+Brazil Porto Alegre South ,South America,1
+Brazil Recife ,South America,1
+Brazil Ribeirão Preto ,South America,1
+Brazil Rio de Janeiro ,South America,1
+Brazil Salvador ,South America,1
+Brazil Salvador South ,South America,1
+Brazil Santa Maria ,South America,1
+Brazil Santos ,South America,1
+Brazil São Paulo East ,South America,1
+Brazil São Paulo West ,South America,1
+Brazil São Paulo Interlagos,South America,1
+Brazil São Paulo North ,South America,1
+Brazil São Paulo South,South America,1
+Brazil Teresina ,South America,1
+Brazil Vitória,South America,1
+Chile Antofagasta ,South America,1
+Chile Concepción ,South America,1
+Chile Concepción South ,South America,1
+Chile Osorno ,South America,1
+Chile Rancagua ,South America,1
+Chile Santiago East ,South America,1
+Chile Santiago North ,South America,1
+Chile Santiago South ,South America,1
+Chile Santiago West,South America,1
+Chile Viña del Mar ,South America,1
+Colombia Bogotá North ,South America,1
+Colombia Barranquilla ,South America,1
+Colombia Bogotá South,South America,1
+Colombia Cali,South America,1
+Colombia Medellin,South America,1
+Ecuador Guayaquil ,South America,1
+Ecuador Guayaquil South ,South America,1
+Ecuador Guayaquil West ,South America,1
+Ecuador Quito ,South America,1
+Ecuador Quito North ,South America,1
+Paraguay Asunción,South America,1
+Paraguay Asunción North ,South America,1
+Perú Arequipa,South America,1
+Perú Chiclayo,South America,1
+Perú Cusco ,South America,1
+Perú Huancayo ,South America,1
+Perú Iquitos,South America,1
+Perú Lima Central,South America,1
+Perú Lima East ,South America,1
+Perú Lima North,South America,1
+Perú Lima South,South America,1
+Perú Lima West,South America,1
+Perú Piura ,South America,1
+Perú Trujillo ,South America,1
+Uruguay Montevideo ,South America,1
+Uruguay Montevideo West ,South America,1
+Venezuela Barcelona,South America,1
+Venezuela Caracas,South America,1
+Venezuela Maracaibo ,South America,1
+Venezuela Valencia,South America,1
+Alabama Birmingham ,United States,1
+Alaska Anchorage,United States,1
+Arizona Gilbert,United States,1
+Arizona Mesa,United States,1
+Arizona Phoenix ,United States,1
+Arizona Scottsdale,United States,1
+Arizona Tempe ,United States,1
+Arizona Tucson ,United States,1
+Arkansas Little Rock ,United States,1
+California Anaheim,United States,1
+California Arcadia,United States,1
+California Bakersfield ,United States,1
+California Carlsbad ,United States,1
+California Fresno ,United States,1
+California Irvine,United States,1
+California Long Beach ,United States,1
+California Los Angeles,United States,1
+California Oakland-San Francisco ,United States,1
+California Rancho Cucamonga ,United States,1
+California Redlands ,United States,1
+California Riverside ,United States,1
+California Roseville,United States,1
+California Sacramento,United States,1
+California San Diego ,United States,1
+California San Fernando,United States,1
+California San Jose,United States,1
+California Santa Rosa,United States,1
+California Ventura,United States,1
+Colorado Colorado Springs ,United States,1
+Colorado Denver North,United States,1
+Colorado Denver South,United States,1
+Colorado Fort Collins ,United States,1
+Florida Fort Lauderdale ,United States,1
+Florida Jacksonville,United States,1
+Florida Orlando ,United States,1
+Florida Tallahassee ,United States,1
+Florida Tampa ,United States,1
+Georgia Atlanta,United States,1
+Georgia Atlanta North,United States,1
+Georgia Macon ,United States,1
+Hawaii Honolulu ,United States,1
+Idaho Boise ,United States,1
+Idaho Nampa ,United States,1
+Idaho Pocatello ,United States,1
+Idaho Twin Falls,United States,1
+Illinois Chicago ,United States,1
+Illinois Chicago West ,United States,1
+Illinois Nauvoo ,United States,1
+Indiana Indianapolis,United States,1
+Iowa Des Moines,United States,1
+Kansas Wichita ,United States,1
+Kentucky Louisville ,United States,1
+Louisiana Baton Rouge ,United States,1
+Maryland Baltimore ,United States,1
+Massachusetts Boston ,United States,1
+Michigan Detroit ,United States,1
+Michigan Lansing ,United States,1
+Minnesota Minneapolis ,United States,1
+Mississippi Jackson ,United States,1
+Missouri Independence ,United States,1
+Missouri St. Louis ,United States,1
+Montana Billings ,United States,1
+Nebraska Omaha ,United States,1
+Nevada Las Vegas,United States,1
+Nevada Las Vegas West ,United States,1
+Nevada Reno ,United States,1
+New Hampshire Manchester ,United States,1
+New Jersey Morristown ,United States,1
+New Mexico Albuquerque ,United States,1
+New Mexico Farmington ,United States,1
+New York New York North,United States,1
+New York New York South ,United States,1
+New York Rochester ,United States,1
+New York Utica ,United States,1
+North Carolina Charlotte ,United States,1
+Ohio Cincinnati ,United States,1
+North Carolina Raleigh ,United States,1
+Ohio Cleveland ,United States,1
+Ohio Columbus ,United States,1
+Oklahoma Oklahoma City ,United States,1
+Oklahoma Tulsa,United States,1
+Oregon Eugene,United States,1
+Oregon Portland ,United States,1
+Oregon Salem ,United States,1
+Pennsylvania Philadelphia ,United States,1
+Pennsylvania Pittsburgh ,United States,1
+South Carolina Columbia ,United States,1
+South Dakota Rapid City ,United States,1
+Tennessee Knoxville ,United States,1
+Tennessee Nashville,United States,1
+Texas Dallas ,United States,1
+Texas Fort Worth,United States,1
+Texas Houston ,United States,1
+Texas Houston East ,United States,1
+Texas Houston South,United States,1
+Texas Lubbock ,United States,1
+Texas McAllen ,United States,1
+Texas San Antonio ,United States,1
+Utah Ogden ,United States,1
+Utah Provo ,United States,1
+Utah Salt Lake City,United States,1
+Utah Salt Lake City Central ,United States,1
+Utah Salt Lake City East ,United States,1
+Utah Salt Lake City West ,United States,1
+Utah Salt Lake City South ,United States,1
+Utah Salt Lake City Temple Square ,United States,1
+Utah St. George ,United States,1
+Virginia Chesapeake ,United States,1
+Virginia Richmond,United States,1
+"Washington, D.C. North ",United States,1
+"Washington, D.C. South ",United States,1
+Washington Everett ,United States,1
+Washington Federal Way ,United States,1
+Washington Kennewick ,United States,1
+Washington Seattle,United States,1
+Washington Spokane ,United States,1
+Washington Vancouver ,United States,1
+Washington Tacoma ,United States,1
+West Virginia Charleston ,United States,1
+Wisconsin Milwaukee ,United States,1

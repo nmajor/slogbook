@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029045146) do
+ActiveRecord::Schema.define(:version => 20131102213355) do
 
   create_table "calls", :force => true do |t|
     t.integer  "mission_id"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(:version => 20131029045146) do
 
   create_table "missions", :force => true do |t|
     t.string   "name"
-    t.string   "country"
-    t.boolean  "mtc"
+    t.string   "region"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "active"
   end
 
   create_table "missionships", :force => true do |t|

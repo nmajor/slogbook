@@ -1,5 +1,5 @@
 class Mission < ActiveRecord::Base
-  attr_accessible :country, :mtc, :name
+  attr_accessible :region, :active, :name
   has_many :missionships
   has_many :users, :through => :missionships
   has_many :calls
