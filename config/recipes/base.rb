@@ -13,4 +13,12 @@ namespace :deploy do
     sudo "apt-get -y update"
     sudo "apt-get -y install python-software-properties"
   end
+
+  desc "Symlink uploads folder"
+  task :sym_uploads do
+    run "rm -rf #{current_path}/public/uploads"
+    run "ln -s #{shared_path}/uploads #{current_path}/public/"  
+  end
+
+  after "deploy", "deploy:sym_uploads"
 end

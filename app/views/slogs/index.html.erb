@@ -19,11 +19,17 @@
   <section class="page_body">
     <%= render 'filter' %>
     <section class="slog_list">
-      <%= will_paginate @slogs %>
-        <% @slogs.each do |slog| %>
-            <%= render "slog_item", :slog => slog %>
-        <% end %>
-      <%= will_paginate @slogs, class: 'pagination_bot' %>
+      <% if @slogs.length != 0 %>
+        <%= will_paginate @slogs %>
+          <% @slogs.each do |slog| %>
+              <%= render "slog_item", :slog => slog %>
+          <% end %>
+        <%= will_paginate @slogs, class: 'pagination_bot' %>
+      <% else %>
+        <section class="slog_preview">
+          Yeah, this is awkward. I couldnt find any slogs with your search criteria.
+        </section>
+      <% end %>
     </section>
   </section>
   <%= render "shared/sidebar" %>
