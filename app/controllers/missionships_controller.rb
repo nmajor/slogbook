@@ -14,7 +14,8 @@ class MissionshipsController < ApplicationController
       @notification = "Mission added successfully."
     else
       @success = 0
-      @notification = "Failed to add mission. No mission by that name."
+      @contact = view_context.link_to( "email us", contact_pages_path, class: "notify_link" )
+      @notification = "No mission by that name. If we need to add it, please #{@contact}."
     end
   end
 

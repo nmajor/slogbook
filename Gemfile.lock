@@ -194,6 +194,7 @@ DEPENDENCIES
   profanity_filter
   rails (= 3.2.13)
   rails3-jquery-autocomplete
+  rake
   recaptcha
   rmagick
   sanitize

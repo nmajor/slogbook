@@ -73,7 +73,7 @@ height: 100%;
 width:20em;
 display:block;
 color: #666;
-padding:.8em 1em;
+padding:0.8em 1em;
 border-bottom: 1px solid #393939;
 }
 .nav>li>a {
@@ -93,7 +93,7 @@ padding-left:1.2em;
 .new_user_link {
 text-align: center;
 color:#555 !important;
-font-size:.9em;
+font-size:0.9em;
 text-transform:lowercase;
 }
 .new_user_link:hover {
@@ -117,7 +117,7 @@ border: 1px solid #919294 !important;
 color:@light;
 top: 1em;
 left: 1em;
-padding: .5em;
+padding: 0.5em;
 border: none;
 outline: none;
 z-index:101;
@@ -147,7 +147,7 @@ margin:0;
 .slog_preview h3 a {
 color: @black;
 text-decoration: none;
-padding: .2em;
+padding: 0.2em;
 padding-left: 0em;
 line-height: 1.2em;
 cursor: pointer;
@@ -156,10 +156,10 @@ font-size: 1em;
 font-weight: 700;
 }
 .slog_preview.active h3 a {
-margin-bottom:.2em;
+margin-bottom:0.2em;
 }
 .mission {
-margin:0 0 .3em 0em;
+margin:0 0 0.3em 0em;
 display:inline;
 height:1.2em;
 }
@@ -210,7 +210,7 @@ height: 200px;
 }
 .holder img {
 max-width:100%;
-margin-bottom:.1em;
+margin-bottom:0.1em;
 }
 .read_more {
 white-space:nowrap;
@@ -270,9 +270,9 @@ display:inline;
 }
 .tags li a {
 color:#ccc;
-padding:.3em;
-font-size:.8em;
-margin:0 .1em .1em 0;
+padding:0.3em;
+font-size:0.8em;
+margin:0 0.1em 0.1em 0;
 }
 .col{
 float: right;
@@ -291,15 +291,15 @@ top: 0;
 left: 0;
 width: 23%;
 height: 100%;
-background: url('http://nmajor.bluehoststaff.com/project/memes/banner1.png') no-repeat center center;
-background-size: auto auto;
+background: url('banner.png') no-repeat center center;
+background-size: auto;
 }
 .slog_item_main{
 overflow: hidden;
 }
 .slog_item_main h3{
   display: inline-block;
-  padding-left: .2em;
+  padding-left: 0.2em;
 }
 .preview_content{
 min-height: 202px;
@@ -370,7 +370,7 @@ width: 30em;
 }
 .page-header h1{
 color: @black;
-padding: .2em;
+padding: 0.2em;
 padding-left: 0em;
 margin-top: 0em;
 font-size: 2em !important;
@@ -476,8 +476,8 @@ color: #999;
 color: #999; 
 &:hover{ color: #ddd; }
 }
-footer ul{ list-style-type: none; margin-top: .5em; padding: 0; }
-footer ul li{ margin: .5em 0; }
+footer ul{ list-style-type: none; margin-top: 0.5em; padding: 0; }
+footer ul li{ margin: 0.5em 0; }
 .page_body_full {
 padding: 2em;
 margin: 10px;
@@ -503,6 +503,7 @@ form{
 }
 .edit_attr{
   .form_style;
+  overflow: hidden;
 }
 .sign_wrapper {
 margin: 0 auto;
@@ -535,12 +536,9 @@ margin-top: 10px;
 }
 .missions{
 clear: both;
-margin-top: 5em;
+margin: 2em 0;
 }
 .page-header{ margin: 20px 0 20px !important; }
-.edit_attr{
-overflow: hidden;
-}
 .edit_image{
   text-align: center;
 }
@@ -617,7 +615,7 @@ font-size: 11px;
 }
 #call_list div{
   display: inline;
-  label{ margin-right: .4em; }
+  label{ margin-right: 0.4em; }
 }
 #top_banner{
   margin: 10px 10px 0 10px;
@@ -625,5 +623,24 @@ font-size: 11px;
   background: #fff;
   text-align: center;
 }
-#user_login{ margin-bottom: .6em; }
-.single_text{ margin-bottom: .6em !important; }
+#user_login{ margin-bottom: 0.6em; }
+.single_text{ margin-bottom: 0.6em !important; }
+.notify_link{
+  padding: 0 !important;
+  color: #428bca !important;
+  &:hover{ text-decoration: underline !important; }
+}
+.edit_user{
+  padding-bottom: 60px;
+}
+.left_block {
+display: inline-block;
+position: relative;
+float: left;
+margin-right: 1.5em;
+}
+.right_block{ overflow: hidden; height: 200px;}
+.banner_action_link{ width: 10em; }
+.slog_guide {
+margin-bottom: 2em;
+}

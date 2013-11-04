@@ -9,7 +9,7 @@ class SlogsController < ApplicationController
     slogs_per_page = 10
 
     @slog_types = SlogType.all
-    @sorts = [['Most Votes','high_vote'],['Newest','newest']]
+    @sorts = [['Top Slogs','top'],['Newest','new']]
 
     @slogs = Slog.scoped
     @slogs = @slogs.where( :mission_id => Mission.find_by_name(params[:mission]) ) \
@@ -26,6 +26,7 @@ class SlogsController < ApplicationController
     end
       
     @slogs = @slogs.page(params[:page]).per_page(slogs_per_page) 
+    @slogs = @slogs.where('cached_votes_down < 5')
 
     respond_to do |format|
       format.html # index.html.erb

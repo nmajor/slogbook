@@ -2,8 +2,8 @@
   <section class="slog_filters">
   <%= form_tag slogs_path, :method => 'get' do %>
       <%= autocomplete_field_tag 'mission', '', autocomplete_mission_name_missionships_path, :placeholder => "Mission" %>
-      <%= collection_select nil, :slog_type, @slog_types, :id, :name, :include_blank => "Any Slog Type" %>
-      <%= select nil, :sort, @sorts, :include_blank => 'Sort by' %>
+      <%= collection_select nil, :slog_type, @slog_types, :id, :name, :include_blank => "- Any Slog Type" %>
+      <%= select nil, :sort, @sorts, :include_blank => '- Sort by' %>
       <%= submit_tag "Filter", class: "btn btn-primary btn-small", :id => "submit_filter" %>
     <% end %>
   </section>
