@@ -1,5 +1,6 @@
 module UsersHelper
   def avatar_thumb( user )
+    return image_tag 'avatars/thumb_grey_elder.jpg' if ! user 
     if user.avatar_url(:thumb)
       return image_tag user.avatar_url(:thumb).to_s, title: user.username, width: '%100', height: 'auto'
     elsif ! user.avatar_url(:thumb)
