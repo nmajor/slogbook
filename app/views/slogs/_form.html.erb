@@ -25,7 +25,7 @@
       <%= f.fields_for :slog_blocks do |builder| %>
         <%= render 'slog_block_form', f: builder %>
       <% end %>        
-      <%= link_to_add_block "+ Add Block", f %>
+      <%= link_to_add_block "+ Add New Image and Text Block", f %>
     </div>
     <div class="slog_form_tags">
       <%= f.autocomplete_field :tag_list, autocomplete_tag_name_slogs_path, :placeholder => "Tags", :"data-delimiter" => ', ' %>

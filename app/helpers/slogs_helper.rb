@@ -18,7 +18,7 @@ module SlogsHelper
     fields = f.fields_for :slog_blocks, new_slog_block, child_index: id do |builder|
       render 'slog_block_form', f: builder
     end
-    link_to name, '#', class: "add_block btn btn-primary btn-mini", data: { id: id, fields: fields.gsub('\n', '') }
+    link_to name, '#', class: "add_block btn btn-primary", data: { id: id, fields: fields.gsub('\n', '') }
   end
 
   def upvote_slog( slog )
