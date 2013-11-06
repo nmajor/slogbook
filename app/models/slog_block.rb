@@ -3,4 +3,8 @@ class SlogBlock < ActiveRecord::Base
   belongs_to :slog
   validates_with ProfanityValidator, fields: [:body]
   mount_uploader :image, ImageUploader
+  before_save :default_values
+  def default_values
+    self.image ||= ''
+  end
 end
