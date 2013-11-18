@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :slogs
   has_many :missionships
+  has_many :comments
   has_many :missions, :through => :missionships
   has_one :call
   has_one :mission, :through => :call

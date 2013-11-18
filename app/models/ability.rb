@@ -10,7 +10,7 @@ class Ability
       can :read, User
     else
       can :read, Slog
-      can :read, User
+      can :show, User
       if user.role?(:author)
         # can :create, Comment
         # can :update, Comment do |comment|

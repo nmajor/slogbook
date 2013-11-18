@@ -2,7 +2,6 @@ S::Application.routes.draw do
   get "styles", :as => :styles_show, to: "styles#index"
 
   devise_for :users, :controllers => { :registrations => "registrations" }
-  get "/users", to: redirect("/slogs")
 
   root :to => "slogs#index"
   resources :slogs do
@@ -23,6 +22,7 @@ S::Application.routes.draw do
   end
 
   get "users/:id", :as => :user_show, to: "users#show"
+  get "users", :as => :users, to: "users#index"
 
   resources :missionships do
     collection { get :autocomplete_mission_name }
