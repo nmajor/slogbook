@@ -303,13 +303,13 @@ overflow: hidden;
 min-height: 202px;
 }
 .page_body{
-margin-right: 220px;
 float: left;
-margin: 0 220px 10px 10px;
+/* margin: 0 220px 10px 10px; */
+margin: 0 10px 10px 10px;
 margin-left: 10px;
 }
 .means{
-width: 200px;
+/* width: 200px; */
 position: absolute;
 right: 0px;
 margin: 10px 10px 0 0;
@@ -572,6 +572,9 @@ margin-bottom: 2em;
 .banner.nav_active{ position: relative !important; left: 0;}
 body{ position: relative; top: -10px; }
 }
+@media all and (max-width: 1400px) {
+  #intro p{ margin: 0 0 2em 0 !important; }
+}
 @media all and (max-width: 1050px) {
 .slog_image{ display: none !important; }
 }
@@ -616,11 +619,13 @@ font-size: 11px;
   display: inline;
   label{ margin-right: 0.4em; }
 }
-#top_banner{
+#intro{
   margin: 10px 10px 0 10px;
   padding: 1em;
   background: #fff;
   text-align: center;
+  font-size: 1.2em;
+  p { margin: 0 15em 2em 15em; }
 }
 #user_login{ margin-bottom: 0.6em; }
 .single_text{ margin-bottom: 0.6em !important; }
@@ -640,6 +645,7 @@ margin-right: 1.5em;
 }
 .right_block{ overflow: hidden; height: 200px;}
 .banner_action_link{ width: 10em; }
+.banner_actions { margin-bottom: 2em; }
 .slog_guide {
 margin-bottom: 2em;
 }
@@ -653,4 +659,8 @@ font-style: italic;
 text-align: center;
 padding: 2em;
 color: #868686;
+}
+.intro_vid {
+  margin: 2em 0;
+  align: left;
 }
