@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.order(created_at: :desc)
+    @users = User.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
